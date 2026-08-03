@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BeVoyager — How the System Works</title>
+<!--
+  PROTOTYPE — investor walkthrough. Throwaway demo artifact, not product code.
+  Single self-contained file: no build, no deps. Double-click to open in Chrome.
+  Drive with → / Space (next), ← (back), or the on-screen buttons.
+-->
+<style>
+  :root{
+    --bg:#07060a; --panel:#0e0d15; --panel2:#14121d; --line:#241f33;
+    --ink:#f5f2ea; --dim:#9a93a8; --faint:#5c5570;
+    --accent:#f97316; --accent2:#ffb066;
+    --blue:#3b82f6; --green:#22c55e; --purple:#a855f7; --yellow:#eab308; --cyan:#22d3ee;
+    --glow:0 0 0 1px rgba(249,115,22,.4), 0 0 24px -4px rgba(249,115,22,.55);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:radial-gradient(1200px 800px at 70% -10%, #16121f 0%, var(--bg) 55%);
+    color:var(--ink); font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; overflow:hidden;
+  }
+  .stage{position:fixed; inset:0; display:none; flex-direction:column; padding:48px 64px 96px; animation:fade .45s ease both}
+  .stage.on{display:flex}
+  @keyframes fade{from{opacity:0; transform:translateY(12px)}to{opacity:1; transform:none}}
+  .kicker{font-size:13px; letter-spacing:.28em; text-transform:uppercase; color:var(--accent); font-weight:600}
+  h1{font-size:44px; margin:.15em 0 .1em; font-weight:700; letter-spacing:-.02em}
+  h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
+  .lead{color:var(--dim); font-size:19px; max-width:900px; margin:.2em 0 0}
+  .body{flex:1; display:flex; align-items:center; justify-content:center; margin-top:8px}
+
+  /* nav */
+  .nav{position:fixed; left:0; right:0; bottom:0; height:72px; display:flex; align-items:center; gap:20px;
+       padding:0 32px; background:linear-gradient(0deg,rgba(7,6,10,.95),transparent); z-index:50}
+  .dots{display:flex; gap:8px; flex:1; flex-wrap:wrap}
+  .dot{display:flex; align-items:center; gap:7px; padding:5px 11px; border:1px solid var(--line); border-radius:999px;
+       font-size:12px; color:var(--faint); cursor:pointer; white-space:nowrap; transition:.2s}
+  .dot b{color:var(--faint); font-weight:700}
+  .dot.act{border-color:var(--accent); color:var(--ink); box-shadow:var(--glow)}
+  .dot.act b{color:var(--accent)}
+  .dot.done{color:var(--dim)}
+  .btn{border:1px solid var(--line); background:var(--panel2); color:var(--ink); border-radius:10px;
+       padding:11px 20px; font-size:15px; font-weight:600; cursor:pointer; transition:.15s}
+  .btn:hover{border-color:var(--accent)}
+  .btn.pri{background:var(--accent); color:#1a0f04; border-color:var(--accent)}
+  .hint{position:fixed; top:22px; right:28px; color:var(--faint); font-size:12px; letter-spacing:.05em}
+
+  /* generic blocks */
+  .row{display:flex; gap:28px; align-items:center; justify-content:center; flex-wrap:wrap}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:24px 26px; min-width:220px}
+  .card h3{margin:0 0 6px; font-size:20px}
+  .card p{margin:0; color:var(--dim); font-size:15px}
+  .tag{display:inline-block; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:8px}
+  .arrow{color:var(--faint); font-size:30px}
+  .door{width:300px; text-align:center; padding:32px 26px; border-radius:18px; border:1px solid var(--line); background:var(--panel)}
+  .door .ic{font-size:40px}
+  .door.voice{box-shadow:0 0 0 1px rgba(249,115,22,.35)}
+  .door.chat{box-shadow:0 0 0 1px rgba(59,130,246,.35)}
+  .door h3{font-size:24px; margin:10px 0 4px}
+  .door small{color:var(--faint)}
+  .brainline{color:var(--dim); font-size:16px; margin-top:26px; text-align:center}
+  .brainline b{color:var(--accent2)}
+
+  /* intake list */
+  .intake{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:12px 32px; max-width:820px}
+  .q{display:flex; gap:12px; align-items:center; padding:12px 16px; border:1px solid var(--line); border-radius:11px; background:var(--panel); opacity:.35; transition:.3s}
+  .q.lit{opacity:1; border-color:var(--accent); box-shadow:var(--glow)}
+  .q .n{width:26px; height:26px; flex:none; border-radius:50%; background:var(--panel2); border:1px solid var(--line);
+        display:grid; place-items:center; font-size:13px; font-weight:700; color:var(--accent)}
+  .q .a{margin-left:auto; color:var(--accent2); font-size:14px; font-weight:600}
+
+  /* pipeline / nodes */
+  .pipe{display:flex; align-items:center; gap:22px; flex-wrap:wrap; justify-content:center}
+  .node{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 20px; text-align:center; min-width:150px}
+  .node .ic{font-size:24px}
+  .node b{display:block; margin-top:6px; font-size:15px}
+  .node small{color:var(--faint); font-size:12px}
+  .star{box-shadow:var(--glow); border-color:var(--accent)}
+
+  .grid8{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; max-width:920px}
+  .fan{background:var(--panel); border:1px solid var(--line); border-radius:13px; padding:16px; text-align:center; opacity:.3; transform:scale(.96); transition:.35s}
+  .fan.lit{opacity:1; transform:scale(1); border-color:var(--cyan); box-shadow:0 0 0 1px rgba(34,211,238,.4),0 0 22px -6px rgba(34,211,238,.6)}
+  .fan .ic{font-size:22px}
+  .fan b{display:block; font-size:14px; margin-top:5px}
+  .fan small{color:var(--faint); font-size:11px}
+  .concurrent{margin-top:20px; color:var(--cyan); font-size:15px; text-align:center; opacity:0; transition:.4s}
+  .concurrent.show{opacity:1}
+
+  .outs{display:flex; gap:24px; flex-wrap:wrap; justify-content:center}
+  .out{width:280px; border-radius:16px; border:1px solid var(--line); background:var(--panel); padding:24px}
+  .out .ic{font-size:30px}
+  .out h3{margin:8px 0 8px; font-size:20px}
+  .out ul{margin:0; padding-left:18px; color:var(--dim); font-size:14px}
+  .out ul li{margin:3px 0}
+
+  .roadmap{display:flex; gap:20px; flex-wrap:wrap; justify-content:center; max-width:1000px}
+  .rm{flex:1; min-width:230px; border:1px dashed var(--line); border-radius:14px; padding:22px; background:rgba(20,18,29,.5)}
+  .rm .tag{color:var(--accent2)}
+  .rm h3{margin:0 0 6px; font-size:19px}
+  .rm p{margin:0; color:var(--dim); font-size:14px}
+
+  .stackbar{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:22px}
+  .chip{font-size:12px; color:var(--dim); border:1px solid var(--line); border-radius:999px; padding:5px 12px; background:var(--panel)}
+  .chip b{color:var(--ink)}
+  .example{position:fixed; top:20px; left:64px; font-size:13px; color:var(--faint)}
+  .example b{color:var(--accent2)}
+</style>
+</head>
+<body>
+<div class="hint">← → to navigate · Space = next</div>
+
+<!-- ACT 1 · ENTER -->
+<section class="stage" data-act="Enter">
+  <div class="kicker">Act 1 — Enter</div>
+  <h1>Two front doors. <span class="sub">One brain.</span></h1>
+  <p class="lead">A traveler reaches BeVoyager by voice or by text. Both feed the exact same engine — only the channel differs.</p>
+  <div class="body">
+    <div>
+      <div class="row">
+        <div class="door voice"><div class="ic">🎙️</div><h3>Yatra</h3><small>voice · LiveKit + Deepgram</small></div>
+        <div class="arrow">→</div>
+        <div class="card" style="min-width:240px"><div class="tag">Same intake</div><h3>Canonical payload</h3><p>destination · dates · travelers · style</p></div>
+        <div class="arrow">←</div>
+        <div class="door chat"><div class="ic">💬</div><h3>Orion</h3><small>chat · text channel</small></div>
+      </div>
+      <p class="brainline">Yatra and Orion share the <b>same intelligence</b>. The channel changes — the brain doesn't.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stage" data-act="Enter">
+  <div class="example">Worked example: <b>“Plan me 5 days in Lisbon”</b></div>
+  <div class="kicker">Act 1 — Enter</div>
+  <h1>Structured intake <span class="sub">— 8 questions, either channel</span></h1>
+  <p class="lead">Whether spoken to Yatra or typed to Orion, the agent gathers the same 8 signals into one canonical payload. Watch them fill in.</p>
+  <div class="body">
+    <div class="intake" id="intake">
+      <div class="q" data-a="Lisbon"><span class="n">1</span> Destination <span class="a"></span></div>
+      <div class="q" data-a="5 days"><span class="n">2</span> Trip length <span class="a"></span></div>
+      <div class="q" data-a="2 adults"><span class="n">3</span> Travelers <span class="a"></span></div>
+      <div class="q" data-a="Sept"><span class="n">4</span> Dates <span class="a"></span></div>
+      <div class="q" data-a="Culture + food"><span class="n">5</span> Interests <span class="a"></span></div>
+      <div class="q" data-a="Mid-range"><span class="n">6</span> Budget <span class="a"></span></div>
+      <div class="q" data-a="Relaxed"><span class="n">7</span> Pace <span class="a"></span></div>
+      <div class="q" data-a="Walk + metro"><span class="n">8</span> Mobility <span class="a"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 2 · THINK -->
+<section class="stage" data-act="Think">
+  <div class="kicker">Act 2 — Think</div>
+  <h1>Orchestration <span class="sub">— LangChain + LangGraph</span></h1>
+  <p class="lead">The payload enters a <b>stateful graph</b>. It's not one prompt — it's a multi-step agent, checkpointed in Postgres, so a conversation can pause and resume.</p>
+  <div class="body">
+    <div class="pipe">
+      <div class="node"><div class="ic">📥</div><b>Canonical intake</b><small>8 signals</small></div>
+      <div class="arrow">→</div>
+      <div class="node star"><div class="ic">🧠</div><b>LangGraph agent</b><small>stateful · Postgres checkpoint</small></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="ic">🗺️</div><b>Route + plan</b><small>decide what to research</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage" data-act="Think">
+  <div class="kicker">Act 2 — Think</div>
+  <h1>Everything is traced <span class="sub">— nothing is a black box</span></h1>
+  <p class="lead">Every step is observable. We capture the voice, the reasoning, the cost — so we can debug it and make the agent measurably better.</p>
+  <div class="body">
+    <div class="row">
+      <div class="card"><div class="tag">Voice capture</div><h3>Deepgram</h3><p>Speech → text in · text → speech out (Aura-2). The raw turns are captured in the backend.</p></div>
+      <div class="card"><div class="tag">Tracing</div><h3>Langfuse</h3><p>Every LLM + tool call traced end-to-end. Latency, tokens, cost per step.</p></div>
+      <div class="card"><div class="tag">Product + errors</div><h3>PostHog · Sentry</h3><p>Analytics on what users do; errors caught across client, server, edge.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage" data-act="Think">
+  <div class="kicker">Act 2 — Think</div>
+  <h1>The LLM layer <span class="sub">— reasoning on demand</span></h1>
+  <p class="lead">The graph calls the LLM to reason and compose. The model is a <b>commodity input</b> — swappable — our edge is the orchestration around it.</p>
+  <div class="body">
+    <div class="pipe">
+      <div class="node star"><div class="ic">🧠</div><b>LangGraph</b><small>composes context</small></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="ic">⚡</div><b>Azure OpenAI</b><small>GPT-4o-mini</small></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="ic">🔁</div><b>Swappable</b><small>route to cheapest model that passes</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 3 · RESEARCH (the wow) -->
+<section class="stage" data-act="Research">
+  <div class="example">Worked example: <b>Lisbon, 5 days, culture + food</b></div>
+  <div class="kicker">Act 3 — Research · the core</div>
+  <h1>8 researchers, <span class="sub">all at once</span></h1>
+  <p class="lead">From one intake, the graph <b>fans out in parallel</b> — eight specialised workflows run concurrently, not one after another. That's why a full plan comes back in seconds.</p>
+  <div class="body">
+    <div>
+      <div class="grid8" id="fan">
+        <div class="fan"><div class="ic">🎟️</div><b>Viator</b><small>activities & tours</small></div>
+        <div class="fan"><div class="ic">🎉</div><b>Events</b><small>what's on</small></div>
+        <div class="fan"><div class="ic">🚉</div><b>Transit</b><small>getting around</small></div>
+        <div class="fan"><div class="ic">☀️</div><b>Weather</b><small>forecast</small></div>
+        <div class="fan"><div class="ic">💱</div><b>Currency</b><small>cash & cards</small></div>
+        <div class="fan"><div class="ic">🥾</div><b>Outdoors</b><small>nature & walks</small></div>
+        <div class="fan"><div class="ic">🧳</div><b>Packing</b><small>what to bring</small></div>
+        <div class="fan"><div class="ic">🗺️</div><b>Day trips</b><small>Sintra, Cascais…</small></div>
+      </div>
+      <div class="concurrent" id="concurrentMsg">⚡ All 8 running concurrently · via Google Places/Maps · Firecrawl · Exa</div>
+    </div>
+  </div>
+</section>
+
+<section class="stage" data-act="Research">
+  <div class="kicker">Act 3 — Research</div>
+  <h1>Merge, compose, shape <span class="sub">— one coherent plan</span></h1>
+  <p class="lead">The eight streams merge; the LLM composes them into a single itinerary; a shape step formats it for the interface.</p>
+  <div class="body">
+    <div class="pipe">
+      <div class="node"><div class="ic">🔀</div><b>Merge</b><small>8 results → one context</small></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="ic">✍️</div><b>Compose</b><small>GPT-4o-mini writes the plan</small></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="ic">📐</div><b>Shape</b><small>format for UI</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 4 · DELIVER -->
+<section class="stage" data-act="Deliver">
+  <div class="example">Worked example: <b>Lisbon plan is ready</b></div>
+  <div class="kicker">Act 4 — Deliver</div>
+  <h1>Rendered as live UI <span class="sub">— Tambo, not a wall of text</span></h1>
+  <p class="lead">Tambo turns the plan into interactive components. The user doesn't read a paragraph — they get cards they can act on.</p>
+  <div class="body">
+    <div class="row">
+      <div class="card"><div class="tag">Widget</div><h3>🎟️ Activity cards</h3><p>Viator tours — Going / Skip → itinerary rebuilds</p></div>
+      <div class="card"><div class="tag">Widget</div><h3>🗺️ Live map</h3><p>Google — every stop pinned</p></div>
+      <div class="card"><div class="tag">Widget</div><h3>☀️ Weather</h3><p>per-day forecast for the trip window</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage" data-act="Deliver">
+  <div class="kicker">Act 4 — Deliver</div>
+  <h1>Three outputs <span class="sub">— the user walks away with everything</span></h1>
+  <p class="lead">One plan, three ways to take it with you.</p>
+  <div class="body">
+    <div class="outs">
+      <div class="out"><div class="ic">📱</div><h3>Interactive itinerary</h3><ul><li>Activity cards · map</li><li>Weather · transport</li><li>Going/Skip → rebuild</li></ul></div>
+      <div class="out"><div class="ic">🎧</div><h3>Audio Studio</h3><ul><li>Podcast-style episode</li><li>Scripted narration, voice styles</li><li>Spotify / Apple blurbs</li></ul></div>
+      <div class="out"><div class="ic">📄</div><h3>PDF dossier</h3><ul><li>Itinerary + weather + emergency</li><li>Visa · health · packing</li><li>Culture · local SIM/eSIM</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP CLOSE -->
+<section class="stage" data-act="Next">
+  <div class="kicker">Where we're headed</div>
+  <h1>We're in build phase <span class="sub">— here's what the raise unlocks</span></h1>
+  <p class="lead">The core loop is live today. Next we deepen the moat and open the doors.</p>
+  <div class="body">
+    <div>
+      <div class="roadmap">
+        <div class="rm"><div class="tag">Transactional</div><h3>Flights + hotels booking</h3><p>Amadeus / Duffel — become bookable, earn take-rate on every trip.</p></div>
+        <div class="rm"><div class="tag">Memory</div><h3>Vector memory (Chroma)</h3><p>Yatra remembers you trip-to-trip — personalised planning.</p></div>
+        <div class="rm"><div class="tag">Quality flywheel</div><h3>Eval loop (LangWatch)</h3><p>Simulate & score the voice agent — it gets measurably better with usage.</p></div>
+        <div class="rm"><div class="tag">Control</div><h3>Self-host the stack</h3><p>Own the voice + inference layer as volume grows — manage cost & latency.</p></div>
+      </div>
+      <div class="stackbar">
+        <span class="chip">Runs on <b>Cloudflare Workers</b> · serverless</span>
+        <span class="chip"><b>~$0.13</b> / planning session</span>
+        <span class="chip"><b>~$660K</b> secured non-dilutive credits</span>
+        <span class="chip">Launch <b>Sept 30</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="nav">
+  <button class="btn" id="prev">← Back</button>
+  <div class="dots" id="dots"></div>
+  <button class="btn pri" id="next">Next →</button>
+</nav>
+
+<script>
+  const stages=[...document.querySelectorAll('.stage')];
+  const acts=stages.map(s=>s.dataset.act);
+  let i=0;
+  const dotsEl=document.getElementById('dots');
+  // one dot per stage, labeled by act (first stage of each act shows the act name)
+  stages.forEach((s,idx)=>{
+    const d=document.createElement('div'); d.className='dot';
+    const firstOfAct = idx===0 || acts[idx]!==acts[idx-1];
+    d.innerHTML = firstOfAct ? '<b>'+s.dataset.act+'</b>' : '·';
+    d.onclick=()=>go(idx);
+    dotsEl.appendChild(d);
+  });
+  const dots=[...dotsEl.children];
+
+  function runStageFx(idx){
+    const s=stages[idx];
+    // intake fill
+    const intake=s.querySelector('#intake');
+    if(intake){
+      const qs=[...s.querySelectorAll('.q')];
+      qs.forEach(q=>{q.classList.remove('lit'); q.querySelector('.a').textContent='';});
+      qs.forEach((q,k)=>setTimeout(()=>{q.classList.add('lit'); q.querySelector('.a').textContent=q.dataset.a;}, 180*k+150));
+    }
+    // parallel fan-out
+    const fan=s.querySelector('#fan');
+    if(fan){
+      const fs=[...s.querySelectorAll('.fan')];
+      const msg=s.querySelector('#concurrentMsg');
+      fs.forEach(f=>f.classList.remove('lit')); if(msg)msg.classList.remove('show');
+      // all light near-simultaneously to sell "parallel"
+      setTimeout(()=>{fs.forEach(f=>f.classList.add('lit')); if(msg)msg.classList.add('show');},250);
+    }
+  }
+
+  function go(n){
+    i=Math.max(0,Math.min(stages.length-1,n));
+    stages.forEach((s,idx)=>s.classList.toggle('on',idx===i));
+    dots.forEach((d,idx)=>{d.classList.toggle('act',idx===i); d.classList.toggle('done',idx<i);});
+    document.getElementById('prev').style.visibility = i===0?'hidden':'visible';
+    const nx=document.getElementById('next'); nx.textContent = i===stages.length-1?'Restart ↻':'Next →';
+    runStageFx(i);
+  }
+  document.getElementById('next').onclick=()=> i===stages.length-1 ? go(0) : go(i+1);
+  document.getElementById('prev').onclick=()=>go(i-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault(); i===stages.length-1?go(0):go(i+1);}
+    if(e.key==='ArrowLeft'){e.preventDefault(); go(i-1);}
+  });
+  go(0);
+</script>
+</body>
+</html>
