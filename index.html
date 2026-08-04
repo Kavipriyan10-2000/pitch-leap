@@ -190,6 +190,17 @@
   .pdffoot{text-align:center; color:var(--faint); font-size:14px; margin-top:26px; letter-spacing:.02em}
   .pdfshare{display:flex; gap:12px; align-items:center; justify-content:center; margin-top:24px}
 
+  /* ---- 4D Smart Map (roadmap) ---- */
+  .mapwrap{display:flex; gap:32px; align-items:center; justify-content:center; max-width:1240px; margin:0 auto; width:100%}
+  .mapbox{width:620px; flex:none; border-radius:16px; overflow:hidden; border:1px solid var(--line); box-shadow:0 24px 60px -20px rgba(0,0,0,.85); position:relative}
+  .mapbox img{width:100%; display:block}
+  .maproad{position:absolute; top:14px; left:14px; font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--accent2); background:rgba(7,6,10,.7); backdrop-filter:blur(4px); border:1px solid rgba(249,115,22,.35); border-radius:999px; padding:6px 12px}
+  .dims{flex:1; min-width:320px; display:flex; flex-direction:column; gap:16px}
+  .dim{display:flex; gap:15px; align-items:flex-start}
+  .dim .ic{width:46px; height:46px; flex:none; border-radius:12px; background:var(--panel); border:1px solid var(--accent); color:var(--accent); display:grid; place-items:center; font-size:22px}
+  .dim b{display:block; font-size:18px} .dim p{margin:3px 0 0; color:var(--dim); font-size:14px; line-height:1.45}
+  .dim .d{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint)}
+
   .outs{display:flex; gap:24px; flex-wrap:wrap; justify-content:center}
   .out{width:280px; border-radius:16px; border:1px solid var(--line); background:var(--panel); padding:24px}
   .out .ic{font-size:30px}
@@ -566,15 +577,22 @@
   </div>
 </section>
 
-<section class="stage" data-act="Deliver">
-  <div class="kicker">Act 4 — Deliver</div>
-  <h1>Three outputs <span class="sub">— the user walks away with everything</span></h1>
-  <p class="lead">One plan, three ways to take it with you.</p>
+<!-- 4D SMART MAP (roadmap) -->
+<section class="stage" data-act="Next">
+  <div class="kicker">Coming next · the moat</div>
+  <h1>4D Smart Map <span class="sub">— space, effort, time &amp; you</span></h1>
   <div class="body">
-    <div class="outs">
-      <div class="out"><div class="ic">📱</div><h3>Interactive itinerary</h3><ul><li>Activity cards · map</li><li>Weather · transport</li><li>Going/Skip → rebuild</li></ul></div>
-      <div class="out"><div class="ic">🎧</div><h3>Audio Studio</h3><ul><li>Podcast-style episode</li><li>Scripted narration, voice styles</li><li>Spotify / Apple blurbs</li></ul></div>
-      <div class="out"><div class="ic">📄</div><h3>PDF dossier</h3><ul><li>Itinerary + weather + emergency</li><li>Visa · health · packing</li><li>Culture · local SIM/eSIM</li></ul></div>
+    <div class="mapwrap">
+      <div class="mapbox">
+        <span class="maproad">Roadmap</span>
+        <img src="img/map-lisbon.png" alt="Lisbon 4D route">
+      </div>
+      <div class="dims">
+        <div class="dim"><div class="ic">📍</div><div><span class="d">Dimension 1–2</span><b>Geography</b><p>Real coordinates &amp; neighbourhood clusters — not a flat list.</p></div></div>
+        <div class="dim"><div class="ic">⛰️</div><div><span class="d">Dimension 3</span><b>Effort</b><p>Hills, stairs, heat — a short uphill can beat a long flat walk.</p></div></div>
+        <div class="dim"><div class="ic">⏱️</div><div><span class="d">Dimension 4</span><b>Time</b><p>Opening hours, transport windows, daylight, last train.</p></div></div>
+        <div class="dim"><div class="ic">👤</div><div><span class="d">The layer on top</span><b>Traveler context</b><p>Pace, mobility, energy — the day reshapes around the person.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
