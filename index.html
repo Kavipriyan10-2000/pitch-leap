@@ -356,45 +356,7 @@
   </div>
 </section>
 
-<section class="stage" data-act="Think">
-  <div class="kicker">Act 2 — Think</div>
-  <h1>The LLM layer <span class="sub">— reasoning on demand</span></h1>
-  <p class="lead">The graph calls the LLM to reason and compose. The model is a <b>commodity input</b> — swappable — our edge is the orchestration around it.</p>
-  <div class="body">
-    <div class="pipe">
-      <div class="node star"><div class="ic">🧠</div><b>LangGraph</b><small>composes context</small></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="ic">⚡</div><b>Azure OpenAI</b><small>GPT-4o-mini</small></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="ic">🔁</div><b>Swappable</b><small>route to cheapest model that passes</small></div>
-    </div>
-  </div>
-</section>
-
-<!-- ACT 3 · RESEARCH (the wow) -->
-<!-- ORCHESTRATION SCREEN 1 · THE CONCEPT -->
-<section class="stage" data-act="Orchestrate">
-  <div class="example">Worked example: <b>Lisbon, 5 days, culture + food</b></div>
-  <div class="kicker">Act 3 — Orchestration · the core</div>
-  <h1>This is the core. <span class="sub">One request, many live sources — at once.</span></h1>
-  <div class="body">
-    <div class="concept">
-      <div class="core"><div class="ic">🧠</div><b>Orchestration engine</b><small>LangGraph · stateful · Postgres-checkpointed</small></div>
-      <div class="rays">
-        <p class="big">From a single intake, the engine <em>fans out in parallel</em> across a dozen live data sources — not one search after another.</p>
-        <p>Each runs concurrently, streams back, and merges into one coherent plan. That's why a full itinerary returns in <b style="color:var(--ink)">seconds</b>, not minutes — and why this is hard to copy: the orchestration <em style="color:var(--cyan);font-style:normal">is</em> the product.</p>
-        <div class="cbadges">
-          <span class="cbadge">parallel fan-out</span>
-          <span class="cbadge">real-time, not cached</span>
-          <span class="cbadge">stateful + resumable</span>
-          <span class="cbadge">14+ live sources</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ORCHESTRATION SCREEN 2 · THE BREADTH GRID -->
+<!-- ORCHESTRATION · THE BREADTH GRID -->
 <section class="stage" data-act="Orchestrate">
   <div class="kicker">Act 3 — Orchestration · what runs in parallel</div>
   <h1>14 workflows, <span class="sub">firing together</span></h1>
@@ -417,6 +379,22 @@
         <div class="ocard"><div class="ic">🌍</div><b>Live Mapping</b><div class="prov">Google Maps</div><div class="why">Every stop pinned &amp; routed</div></div>
       </div>
       <div class="concurrent" id="concurrentMsg">⚡ All running concurrently — then merged &amp; composed into one itinerary</div>
+    </div>
+  </div>
+</section>
+
+<!-- ORCHESTRATION · LLM COMPOSE -->
+<section class="stage" data-act="Orchestrate">
+  <div class="kicker">Act 3 — Orchestration · compose</div>
+  <h1>The LLM layer <span class="sub">— reasoning on demand</span></h1>
+  <p class="lead">Once the workflows stream back, the graph hands the merged context to the LLM to compose the plan. The model is a <b>commodity input</b> — swappable — our edge is the orchestration around it.</p>
+  <div class="body">
+    <div class="pipe">
+      <div class="node star"><div class="ic">🧠</div><b>LangGraph</b><small>merges + composes context</small></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="ic">⚡</div><b>Azure OpenAI</b><small>GPT-4o-mini</small></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="ic">🔁</div><b>Swappable</b><small>route to cheapest model that passes</small></div>
     </div>
   </div>
 </section>
