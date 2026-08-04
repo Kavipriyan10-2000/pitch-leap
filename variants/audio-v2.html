@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Audio V2</title>
+<!-- PROTOTYPE VARIANT — audio 4-mode, trip-phase timeline, throwaway -->
+<style>
+  :root{--bg:#07060a;--panel:#0e0d15;--panel2:#14121d;--line:#241f33;--ink:#f5f2ea;--dim:#9a93a8;--faint:#5c5570;--accent:#f97316;--accent2:#ffb066;--green:#22c55e;--cyan:#22d3ee}
+  *{box-sizing:border-box} body{margin:0;background:radial-gradient(1200px 800px at 70% -10%,#16121f,#07060a 55%);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;padding:46px 60px;min-height:100vh}
+  .kicker{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:42px;margin:.12em 0 .1em;font-weight:700;letter-spacing:-.02em} h1 .sub{color:var(--dim);font-weight:400;font-size:24px}
+  .lead{color:var(--dim);font-size:17px;max-width:860px;margin:.2em 0 20px}
+  .phaselabels{display:flex;max-width:1120px;margin:0 auto 10px} .phaselabels div{flex:1;text-align:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .track{position:relative;max-width:1120px;margin:0 auto} .track::before{content:"";position:absolute;top:38px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,var(--line),var(--accent),var(--cyan))}
+  .row{display:flex;max-width:1120px;margin:0 auto;gap:20px}
+  .m{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 20px;text-align:center;margin-top:56px;position:relative}
+  .m::before{content:"";position:absolute;top:-42px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+  .m .ic{font-size:34px} .m h3{font-size:18px;margin:10px 0 6px} .m p{color:var(--dim);font-size:13px;margin:0}
+  .m .ph{font-size:11px;color:var(--cyan);margin-top:9px;letter-spacing:.05em}
+  .m.post::before{background:var(--cyan)}
+</style></head><body>
+  <div class="kicker">Output 2 · the product</div>
+  <h1>Audio Studio <span class="sub">— audio across the whole journey</span></h1>
+  <p class="lead">One plan, four ways to listen — mapped to when you need them: before you go, in transit, and once you're there.</p>
+  <div class="track">
+    <div class="row">
+      <div class="m"><div class="ic">📥</div><h3>Offline Podcast</h3><p>Downloaded briefing — listen with no connection.</p><div class="ph">before the trip</div></div>
+      <div class="m"><div class="ic">🎧</div><h3>Online Podcast</h3><p>Streamed &amp; always current — updates with your plan.</p><div class="ph">planning phase</div></div>
+      <div class="m"><div class="ic">🎙️</div><h3>Live Interactive</h3><p>Talk back mid-episode; it answers in real time.</p><div class="ph">on the way</div></div>
+      <div class="m post"><div class="ic">🧭</div><h3>AI Live Companion</h3><p>Real-time voice guide while you explore.</p><div class="ph">in-destination</div></div>
+    </div>
+  </div>
+</body></html>
