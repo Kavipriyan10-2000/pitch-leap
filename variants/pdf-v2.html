@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><title>PDF V2</title>
+<!-- PROTOTYPE VARIANT — PDF export, open-document spread, throwaway -->
+<style>
+  :root{--bg:#07060a;--panel:#0e0d15;--panel2:#14121d;--line:#241f33;--ink:#f5f2ea;--dim:#9a93a8;--faint:#5c5570;--accent:#f97316;--accent2:#ffb066;--green:#22c55e;--cyan:#22d3ee;--paper:#fbf8f2;--paperink:#1a140c}
+  *{box-sizing:border-box} body{margin:0;background:radial-gradient(1200px 800px at 70% -10%,#16121f,#07060a 55%);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;padding:44px 60px;min-height:100vh}
+  .kicker{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:40px;margin:.12em 0 .1em;font-weight:700;letter-spacing:-.02em} h1 .sub{color:var(--dim);font-weight:400;font-size:23px}
+  .lead{color:var(--dim);font-size:16px;max-width:820px;margin:.2em 0 22px}
+  .spread{display:flex;gap:16px;justify-content:center;align-items:stretch;max-width:1180px;margin:0 auto}
+  .page{width:300px;background:var(--paper);color:var(--paperink);border-radius:8px;padding:24px 22px;box-shadow:0 24px 60px -20px rgba(0,0,0,.8)}
+  .page.cover{background:#0d0b12;color:var(--ink);display:flex;flex-direction:column;position:relative}
+  .page.cover .persona{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2)}
+  .page.cover .dest{font-size:30px;font-weight:800;margin-top:auto;line-height:1.05}
+  .page.cover .sub2{color:var(--dim);font-size:12px;margin-top:6px}
+  .page.cover .brand{font-size:11px;color:var(--faint);letter-spacing:.1em;margin-top:20px}
+  .plabel{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;border-bottom:1px solid #ece6df;padding-bottom:6px;margin-bottom:10px}
+  .util{margin-bottom:12px} .util .h{font-size:11px;font-weight:700;color:#7a5a2a} .util .b{font-size:11px;color:#5b5147;margin-top:2px;line-height:1.4}
+  .day{font-size:11px;margin-bottom:8px} .day b{color:var(--paperink)} .day span{color:#8a7f72}
+  .pnum{text-align:center;color:#b7ac9d;font-size:9px;margin-top:10px}
+  .access{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:22px;flex-wrap:wrap}
+  .astep{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--dim);border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:8px 14px}
+  .astep b{color:var(--ink)} .aarr{color:var(--faint)}
+</style></head><body>
+  <div class="kicker">Output 3 · the product</div>
+  <h1>PDF Travel Dossier <span class="sub">— a real document, not a printout</span></h1>
+  <p class="lead">Persona-aware, branded, complete. Here's the actual multi-page spread — generated in-app, shared by link, opened inside BeVoyager.</p>
+  <div class="spread">
+    <div class="page cover"><div class="persona">Family traveller · 🇵🇹</div><div class="dest">Lisbon<br>5 Days</div><div class="sub2">Sep 10–15 · 2 travellers</div><div class="brand">BEVOYAGER.AI</div></div>
+    <div class="page"><div class="plabel">Itinerary</div>
+      <div class="day"><b>Day 1 · Alfama</b><br><span>Sintra tour · Miradouro · Sense of Coffee</span></div>
+      <div class="day"><b>Day 2 · Belém</b><br><span>Tower · Pastéis · Tram 15</span></div>
+      <div class="day"><b>Day 3 · Sintra</b><br><span>Pena Palace · Quinta da Regaleira</span></div>
+      <div class="pnum">2 / 8</div></div>
+    <div class="page"><div class="plabel">Trip Essentials</div>
+      <div class="util"><div class="h">WEATHER FORECAST</div><div class="b">27–30°C · mostly clear all week</div></div>
+      <div class="util"><div class="h">EMERGENCY CONTACTS</div><div class="b">EU emergency 112 · police 21 765 4242</div></div>
+      <div class="util"><div class="h">CASH &amp; CURRENCY</div><div class="b">Euro (€) · cards widely accepted</div></div>
+      <div class="pnum">3 / 8</div></div>
+    <div class="page"><div class="plabel">Entry · Health · Culture</div>
+      <div class="util"><div class="h">VISA &amp; ENTRY</div><div class="b">Schengen area — check 90/180 rule</div></div>
+      <div class="util"><div class="h">HEALTH</div><div class="b">EHIC/GHIC valid · no vaccines required</div></div>
+      <div class="util"><div class="h">LOCAL SIM &amp; eSIM</div><div class="b">Vodafone PT eSIM · airport pickup</div></div>
+      <div class="pnum">6 / 8</div></div>
+  </div>
+  <div class="access">
+    <span class="astep">🔒 <b>In-app</b> — generated &amp; stored</span><span class="aarr">→</span>
+    <span class="astep">🔗 <b>Share link</b></span><span class="aarr">→</span>
+    <span class="astep">📱 Opens in <b>BeVoyager app</b></span>
+  </div>
+</body></html>
