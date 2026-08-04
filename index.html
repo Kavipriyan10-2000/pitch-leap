@@ -108,10 +108,163 @@
   .chip b{color:var(--ink)}
   .example{position:fixed; top:20px; left:64px; font-size:13px; color:var(--faint)}
   .example b{color:var(--accent2)}
+
+  /* ---- intro slides ---- */
+  .stage.intro{align-items:center; text-align:center; justify-content:center; padding-top:0}
+  .cover-wrap{max-width:1100px; margin:auto}
+  .cover-title{font-size:88px; font-weight:800; letter-spacing:-.03em; margin:0}
+  .cover-tag{font-size:30px; color:var(--accent); font-weight:700; margin:18px 0 0}
+  .cover-rule{height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent); margin:48px 0 32px}
+  .cover-meta{display:flex; gap:60px; justify-content:center; text-align:left; flex-wrap:wrap}
+  .cover-meta .mh{font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--faint); margin:0 0 8px}
+  .cover-meta p{margin:2px 0; font-size:17px; color:var(--ink)}
+  .cover-meta .hi{color:var(--accent2); font-weight:600}
+
+  .intro .lead-block{max-width:960px; text-align:left; margin:0 auto}
+  .founders{display:grid; grid-template-columns:1fr 1fr; gap:28px; max-width:1000px; margin:8px auto 0}
+  .founder{border:1px solid var(--line); border-radius:16px; background:var(--panel); padding:30px 32px; text-align:center}
+  .founder .ic{font-size:38px}
+  .founder h3{color:var(--accent2); font-size:22px; margin:14px 0 2px}
+  .founder .role{font-weight:700; font-size:16px; margin:0 0 12px}
+  .founder p{color:var(--dim); font-size:14px; line-height:1.55; margin:0; text-align:left}
+
+  .points{max-width:940px; margin:0 auto; text-align:left; display:flex; flex-direction:column; gap:22px}
+  .point{display:flex; gap:16px; align-items:flex-start}
+  .point .chev{color:var(--accent); font-size:22px; line-height:1.3; flex:none}
+  .point p{margin:0; font-size:19px; color:var(--dim); line-height:1.5}
+  .point b{color:var(--ink)}
+  .banner{border:1px solid rgba(249,115,22,.35); background:rgba(249,115,22,.08); border-radius:14px; padding:18px 24px; max-width:940px; margin:0 auto 26px; text-align:left}
+  .banner b{color:var(--accent2); font-size:20px}
+  .big-figure{color:var(--accent)}
+
+  /* ---- closing slides ---- */
+  .ttable{max-width:1080px; margin:0 auto; width:100%; border-collapse:collapse}
+  .ttable td{padding:20px 22px; border-bottom:1px solid var(--line); vertical-align:top; font-size:16px; color:var(--dim); line-height:1.5}
+  .ttable tr td:first-child{color:var(--ink); font-weight:700; width:240px; white-space:nowrap}
+  .ttable tr td:last-child{color:var(--accent2)}
+  .gtm{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1080px; margin:0 auto}
+  .gtm .card{min-width:0}
+  .gtm .ic{font-size:30px; color:var(--accent)}
+  .gtm h3{font-size:20px; margin:12px 0 10px}
+  .gtm p{font-size:15px; color:var(--dim); line-height:1.55}
+  .gtm .price b{color:var(--ink)}
+  .ask{display:flex; gap:56px; align-items:center; justify-content:center; flex-wrap:wrap; max-width:1100px; margin:0 auto}
+  .donut{width:300px; height:300px; border-radius:50%; flex:none; position:relative;
+    background:conic-gradient(var(--accent) 0 60%, #eab308 60% 85%, #6b7280 85% 100%)}
+  .donut::after{content:""; position:absolute; inset:64px; border-radius:50%; background:var(--bg)}
+  .donut span{position:absolute; inset:0; display:grid; place-items:center; font-size:44px; font-weight:800; z-index:1}
+  .alloc{max-width:560px}
+  .alloc h4{font-size:15px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin:0 0 16px}
+  .alloc .li{display:flex; gap:12px; margin:0 0 16px; font-size:16px; color:var(--dim); line-height:1.5}
+  .alloc .sw{width:16px; height:16px; border-radius:4px; flex:none; margin-top:3px}
+  .alloc b{color:var(--ink)}
+  .milestone{border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin-top:8px; background:rgba(20,18,29,.5)}
+  .milestone .mt{color:var(--accent); font-weight:700; font-size:13px; letter-spacing:.05em; margin:0 0 6px}
+  .milestone p{margin:0; color:var(--dim); font-size:15px}
+
+  /* ---- partners slide ---- */
+  .ptotal{text-align:center; margin:0 auto 22px}
+  .ptotal .big{font-size:52px; font-weight:800; color:var(--accent)}
+  .ptotal .cap{color:var(--faint); font-size:14px; letter-spacing:.15em; text-transform:uppercase}
+  .pgroups{display:flex; flex-direction:column; gap:16px; max-width:1180px; margin:0 auto; width:100%}
+  .pgroup{display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap}
+  .pgroup .glabel{width:150px; flex:none; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); padding-top:9px}
+  .pchips{display:flex; gap:10px; flex-wrap:wrap; flex:1}
+  .pchip{border:1px solid var(--line); background:var(--panel); border-radius:10px; padding:8px 13px; font-size:14px; color:var(--ink); display:flex; gap:8px; align-items:baseline}
+  .pchip b{color:var(--accent2); font-weight:700; font-size:13px}
+  .pchip .prog{color:var(--faint); font-size:12px}
+
+  /* ---- logo wall ---- */
+  .logowall{display:grid; grid-template-columns:repeat(5,1fr); gap:28px; max-width:1180px; margin:0 auto; width:100%; align-items:center; justify-items:center}
+  .logocell{width:100%; height:84px; background:#f7f7fb; border:1px solid var(--line); border-radius:14px;
+    display:grid; place-items:center; padding:16px 20px; transition:.2s}
+  .logocell:hover{box-shadow:var(--glow)}
+  .logocell img{max-width:100%; max-height:44px; object-fit:contain}
+  .logotext{font-weight:800; font-size:24px; letter-spacing:-.02em; color:#111}
+  .logotext.orange{color:#ff9900}
+  .logotext .sub{font-weight:600; font-size:15px}
 </style>
 </head>
 <body>
 <div class="hint">← → to navigate · Space = next</div>
+
+<!-- INTRO 1 · COVER -->
+<section class="stage intro" data-act="Intro">
+  <div class="cover-wrap">
+    <div class="kicker">Investor Introduction</div>
+    <h1 class="cover-title">Bevoyager.ai</h1>
+    <p class="cover-tag">The Real-Time Orchestration Layer for Human Mobility.</p>
+    <div class="cover-rule"></div>
+    <div class="cover-meta">
+      <div>
+        <p class="mh">Founders</p>
+        <p>Harishmaran Subbaiah Thirumaran <span class="hi">(CEO)</span></p>
+        <p>Kavipriyan Loganathan <span class="hi">(CTO)</span></p>
+      </div>
+      <div>
+        <p class="mh">Location &amp; Phase</p>
+        <p>London / Munich Edge</p>
+        <p class="hi">Pre-Seed Stage</p>
+      </div>
+      <div>
+        <p class="mh">Contact</p>
+        <p>harishmaran@bevoyager.ai</p>
+        <p>Bevoyager.ai</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO 2 · TEAM -->
+<section class="stage" data-act="Intro">
+  <div class="kicker">Who we are</div>
+  <h1>Built by Operators with <span style="color:var(--accent)">Proven Domain Focus</span></h1>
+  <div class="body">
+    <div class="founders">
+      <div class="founder">
+        <div class="ic">👔</div>
+        <h3>Harishmaran Subbaiah Thirumaran</h3>
+        <p class="role">Founder &amp; CEO</p>
+        <p>MSc International Business (Univ. of Liverpool), B.E. Mechanical Engineering. Proven operator grit scaling systems as Ex-Business &amp; Operations Analyst at UK DWP and Sainsbury's Bank; former co-founder of Cookooc.</p>
+      </div>
+      <div class="founder">
+        <div class="ic">💻</div>
+        <h3>Kavipriyan Loganathan</h3>
+        <p class="role">Co-Founder &amp; CTO</p>
+        <p>Systems architecture lead, specializing in full-stack AI orchestration, cloud deployment, and real-time database management. Architected the sub-500ms voice pipeline and proprietary real-time transit graph.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO 3 · PROBLEM -->
+<section class="stage" data-act="Intro">
+  <div class="kicker">The problem</div>
+  <h1>The <span class="big-figure">$900B</span> Friction Problem</h1>
+  <div class="body">
+    <div>
+      <div class="banner"><b>Multi-Modal Disruptions Cost Time &amp; Connections</b></div>
+      <div class="points">
+        <div class="point"><span class="chev">›</span><p><b>Static Systems in a Fluid World:</b> Booking engines manage static tickets, completely failing when real-time disruptions hit multi-modal journeys.</p></div>
+        <div class="point"><span class="chev">›</span><p><b>Siloed Operator APIs:</b> Rail, air, and urban mobility operate in vacuums, transferring the burden of re-routing entirely to the traveler.</p></div>
+        <div class="point"><span class="chev">›</span><p><b>The Inefficiency Cost:</b> This lack of orchestration results in 4.2 hours lost per trip, missed connections, and fragmented customer support loops.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO 4 · SOLUTION -->
+<section class="stage" data-act="Intro">
+  <div class="kicker">The solution</div>
+  <h1>The Bevoyager <span style="color:var(--accent)">Solution</span></h1>
+  <div class="body">
+    <div class="points">
+      <div class="point"><span class="chev">›</span><p><b>Real-Time Disruption Handling:</b> <span class="hi" style="color:var(--accent2)">[Demo Anchor]</span> Watch voice input trigger an autonomous multi-agent re-routing protocol instantly.</p></div>
+      <div class="point"><span class="chev">›</span><p><b>Sub-Second Voice Orchestration:</b> We bypass legacy search mechanics, empowering users to manage fluid journeys conversationally.</p></div>
+      <div class="point"><span class="chev">›</span><p><b>End-to-End Context Retention:</b> The system remembers preferences, limits, and real-time status across every leg of the physical journey.</p></div>
+    </div>
+  </div>
+</section>
 
 <!-- ACT 1 · ENTER -->
 <section class="stage" data-act="Enter">
@@ -279,6 +432,98 @@
         <span class="chip"><b>~$0.13</b> / planning session</span>
         <span class="chip"><b>~$660K</b> secured non-dilutive credits</span>
         <span class="chip">Launch <b>Sept 30</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE 1 · MOTION ECONOMY ALIGNMENT -->
+<section class="stage" data-act="Business">
+  <div class="kicker">Strategic fit</div>
+  <h1>Alignment with LEAP4's <span style="color:var(--accent)">"Motion Economy"</span></h1>
+  <div class="body">
+    <table class="ttable">
+      <tr><td>Software Intelligence</td><td style="color:var(--dim)">Multi-agent context orchestration via Claude (Bedrock)</td><td>High-margin software layer on physical mobility</td></tr>
+      <tr><td>Resilient Infrastructure</td><td style="color:var(--dim)">Real-time EU vector routing engine using Chroma</td><td>Low-latency fault resolution during transit delays</td></tr>
+      <tr><td>Interconnected Systems</td><td style="color:var(--dim)">Multi-modal travel API integration (Air, Rail, Rides)</td><td>Direct alignment with connected OEM/Transit trends</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- CLOSE 2 · GTM + UNIT ECONOMICS -->
+<section class="stage" data-act="Business">
+  <div class="kicker">Business model</div>
+  <h1>Go-To-Market &amp; <span style="color:var(--accent)">Unit Economics</span></h1>
+  <div class="body">
+    <div class="gtm">
+      <div class="card"><div class="ic">◎</div><h3>The Initial Wedge</h3><p>Targeting tech professionals, digital nomads, and multi-modal commuters in the UK &amp; DACH corridors.</p></div>
+      <div class="card"><div class="ic">💳</div><h3>B2C Subscription</h3><p class="price"><b>£9.99</b> / standard trip (1–4 travellers)<br><b>£19.99</b> / group trip (5–10 travellers max)</p></div>
+      <div class="card"><div class="ic">🔗</div><h3>B2B / API Expansion</h3><p>Licensing the real-time context engine to corporate travel platforms and OEM mobility systems.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE 3 · EARLY VALIDATION -->
+<section class="stage" data-act="Business">
+  <div class="kicker">Traction signals</div>
+  <h1>Early Validation &amp; <span style="color:var(--accent)">Ecosystem Signals</span></h1>
+  <div class="body">
+    <div class="points">
+      <div class="point"><span class="chev">›</span><p><b>Production MVP Live:</b> Successfully launched the highly complex, low-latency stack MVP in mid-July 2026.</p></div>
+      <div class="point"><span class="chev">›</span><p><b>Ecosystem Acceleration:</b> Active partner support from <b>AWS Activate</b> and the <b>Intercom Startup Program</b>.</p></div>
+      <div class="point"><span class="chev">›</span><p><b>Program Recognition:</b> Selected for the prestigious <b>Web Summit Lisbon 2026 ALPHA Program</b>.</p></div>
+      <div class="point"><span class="chev">›</span><p><b>Deep Technical Support:</b> Direct engineering collaboration with <b>Chroma</b> for EU vector infrastructure deployment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE 3.5 · PARTNERS -->
+<section class="stage" data-act="Business">
+  <div class="kicker">Backed by the ecosystem</div>
+  <h1>Strategic <span style="color:var(--accent)">Ecosystem Partners</span></h1>
+  <p class="lead">Backed by the leading cloud, AI, and developer platforms — the infrastructure powering BeVoyager end to end.</p>
+  <div class="body">
+    <div class="logowall">
+      <div class="logocell"><span class="logotext orange">aws</span></div>
+      <div class="logocell"><img src="logos/nvidia.svg" alt="NVIDIA"></div>
+      <div class="logocell"><img src="logos/googlecloud.svg" alt="Google Cloud"></div>
+      <div class="logocell"><span class="logotext" style="color:#0078d4">Microsoft <span class="sub">Azure</span></span></div>
+      <div class="logocell"><img src="logos/atlassian.svg" alt="Atlassian"></div>
+
+      <div class="logocell"><img src="logos/datadog.svg" alt="Datadog"></div>
+      <div class="logocell"><img src="logos/github.svg" alt="GitHub"></div>
+      <div class="logocell"><img src="logos/gitlab.svg" alt="GitLab"></div>
+      <div class="logocell"><img src="logos/sentry.svg" alt="Sentry"></div>
+      <div class="logocell"><img src="logos/retool.svg" alt="Retool"></div>
+
+      <div class="logocell"><img src="logos/stripe.svg" alt="Stripe"></div>
+      <div class="logocell"><span class="logotext" style="color:#1e6fff">▲ Amplitude</span></div>
+      <div class="logocell"><img src="logos/miro.svg" alt="Miro"></div>
+      <div class="logocell"><img src="logos/intercom.svg" alt="Intercom"></div>
+      <div class="logocell"><img src="logos/cloudflare.svg" alt="Cloudflare"></div>
+
+      <div class="logocell"><img src="logos/mixpanel.svg" alt="Mixpanel"></div>
+      <div class="logocell"><img src="logos/posthog.svg" alt="PostHog"></div>
+      <div class="logocell"><img src="logos/confluent.svg" alt="Confluent"></div>
+      <div class="logocell"><span class="logotext" style="color:#0a5d2e">CARTESIA</span></div>
+      <div class="logocell"><span class="logotext">λ <span class="sub" style="color:#333">Lambda</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE 4 · THE ASK -->
+<section class="stage" data-act="Ask">
+  <div class="kicker">The ask</div>
+  <h1>£1M Pre-Seed Ask @ <span style="color:var(--accent)">£8M Valuation</span></h1>
+  <div class="body">
+    <div class="ask">
+      <div class="donut"><span>£1M</span></div>
+      <div class="alloc">
+        <h4>Capital Allocation</h4>
+        <div class="li"><span class="sw" style="background:var(--accent)"></span><div><b>60% Core Engineering:</b> Multi-agent dev, sub-second latency optimization.</div></div>
+        <div class="li"><span class="sw" style="background:#eab308"></span><div><b>25% Growth:</b> Web Summit 2026 execution, European user acquisition.</div></div>
+        <div class="li"><span class="sw" style="background:#6b7280"></span><div><b>15% Ops &amp; Compliance:</b> EU GDPR compliance, licensing, corporate setup.</div></div>
+        <div class="milestone"><p class="mt">TARGET MILESTONES (18 MONTHS)</p><p>MVP Live (July '26) → Scale to 25,000 active monthly users → Hit <b style="color:var(--ink)">£1.2M ARR run rate</b> before Series A.</p></div>
       </div>
     </div>
   </div>
