@@ -201,6 +201,17 @@
   .dim b{display:block; font-size:18px} .dim p{margin:3px 0 0; color:var(--dim); font-size:14px; line-height:1.45}
   .dim .d{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint)}
 
+  /* ---- 4D map: 3 per-day maps ---- */
+  .daymaps{display:flex; gap:20px; justify-content:center; max-width:1260px; margin:0 auto; width:100%}
+  .daycol{flex:1; display:flex; flex-direction:column}
+  .daycol .dh{font-size:13px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; margin:0 0 10px; display:flex; align-items:center; gap:8px}
+  .daycol .dot{width:10px; height:10px; border-radius:50%}
+  .d1 .dot{background:var(--accent)} .d2 .dot{background:var(--cyan)} .d3 .dot{background:var(--green)}
+  .daycol .map{border-radius:14px; overflow:hidden; border:1px solid var(--line); box-shadow:0 18px 44px -18px rgba(0,0,0,.8)}
+  .daycol .map img{width:100%; display:block}
+  .daycol .flow{margin-top:12px; font-size:12.5px; color:var(--dim); line-height:1.7}
+  .daycol .flow b{color:var(--ink)} .daycol .flow .a{color:var(--faint)}
+
   .outs{display:flex; gap:24px; flex-wrap:wrap; justify-content:center}
   .out{width:280px; border-radius:16px; border:1px solid var(--line); background:var(--panel); padding:24px}
   .out .ic{font-size:30px}
@@ -580,18 +591,23 @@
 <!-- 4D SMART MAP (roadmap) -->
 <section class="stage" data-act="Next">
   <div class="kicker">Coming next · the moat</div>
-  <h1>4D Smart Map <span class="sub">— space, effort, time &amp; you</span></h1>
+  <h1>4D Smart Map <span class="sub">— every day routed on the map: stay · transport · stops · food</span></h1>
   <div class="body">
-    <div class="mapwrap">
-      <div class="mapbox">
-        <span class="maproad">Roadmap</span>
-        <img src="img/map-lisbon.png" alt="Lisbon 4D route">
+    <div class="daymaps">
+      <div class="daycol d1">
+        <div class="dh"><span class="dot"></span>Day 1 · Arrive</div>
+        <div class="map"><img src="img/day1.png" alt="Day 1 route"></div>
+        <div class="flow">🏨 <b>Check-in</b> Baixa <span class="a">🚶 6m</span> 🍽️ <b>Time Out</b> lunch <span class="a">🚋 12m</span> 🌆 <b>Alfama</b> dinner + fado <span class="a">🌙</span></div>
       </div>
-      <div class="dims">
-        <div class="dim"><div class="ic">📍</div><div><span class="d">Dimension 1–2</span><b>Geography</b><p>Real coordinates &amp; neighbourhood clusters — not a flat list.</p></div></div>
-        <div class="dim"><div class="ic">⛰️</div><div><span class="d">Dimension 3</span><b>Effort</b><p>Hills, stairs, heat — a short uphill can beat a long flat walk.</p></div></div>
-        <div class="dim"><div class="ic">⏱️</div><div><span class="d">Dimension 4</span><b>Time</b><p>Opening hours, transport windows, daylight, last train.</p></div></div>
-        <div class="dim"><div class="ic">👤</div><div><span class="d">The layer on top</span><b>Traveler context</b><p>Pace, mobility, energy — the day reshapes around the person.</p></div></div>
+      <div class="daycol d2">
+        <div class="dh"><span class="dot"></span>Day 2 · Explore</div>
+        <div class="map"><img src="img/day2.png" alt="Day 2 route"></div>
+        <div class="flow">🏨 <b>Hotel</b> <span class="a">🚇 15m</span> 🏛️ <b>Gulbenkian</b> <span class="a">🚕 18m</span> 🗼 <b>Belém</b> <span class="a">🚋 20m</span> 🍷 <b>Chiado</b> dinner + drinks</div>
+      </div>
+      <div class="daycol d3">
+        <div class="dh"><span class="dot"></span>Day 3 · Day trip + out</div>
+        <div class="map"><img src="img/day3.png" alt="Day 3 route"></div>
+        <div class="flow">🏨 <b>Checkout</b> <span class="a">🚆 40m</span> 🏰 <b>Sintra</b> palaces <span class="a">🚆 40m</span> 🍽️ <b>Cais do Sodré</b> <span class="a">🚕 25m</span> ✈️ <b>Depart</b></div>
       </div>
     </div>
   </div>

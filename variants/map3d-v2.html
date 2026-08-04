@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8"><title>4D Map V2</title>
+<!-- PROTOTYPE VARIANT — 4D map hero + day-row timeline below, throwaway -->
+<style>
+  :root{--bg:#07060a;--panel:#0e0d15;--panel2:#14121d;--line:#241f33;--ink:#f5f2ea;--dim:#9a93a8;--faint:#5c5570;--accent:#f97316;--accent2:#ffb066;--cyan:#22d3ee;--green:#22c55e}
+  *{box-sizing:border-box} body{margin:0;background:radial-gradient(1200px 800px at 70% -10%,#16121f,#07060a 55%);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;padding:34px 52px;min-height:100vh}
+  .kicker{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:34px;margin:.08em 0 .1em;font-weight:700;letter-spacing:-.02em} h1 .sub{color:var(--dim);font-weight:400;font-size:20px}
+  .wrap{display:flex;gap:26px;align-items:flex-start;margin-top:14px}
+  .mapbox{width:440px;flex:none;border-radius:16px;overflow:hidden;border:1px solid var(--line);position:relative}
+  .mapbox img{width:100%;display:block}
+  .maproad{position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent2);background:rgba(7,6,10,.7);border:1px solid rgba(249,115,22,.35);border-radius:999px;padding:5px 11px}
+  .rows{flex:1;display:flex;flex-direction:column;gap:12px}
+  .row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+  .row .dh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+  .d1 .dh{color:var(--accent)} .d2 .dh{color:var(--cyan)} .d3 .dh{color:var(--green)}
+  .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px}
+  .node{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:5px 10px;white-space:nowrap} .node b{color:var(--ink)}
+  .lg{color:var(--faint);font-size:11px;white-space:nowrap}
+</style></head><body>
+  <div class="kicker">Coming next · the moat</div>
+  <h1>4D Smart Map <span class="sub">— every day routed: stay → transport → stops → food → sleep</span></h1>
+  <div class="wrap">
+    <div class="mapbox"><span class="maproad">Roadmap</span><img src="../img/map-3day.png" alt="3-day Lisbon route"></div>
+    <div class="rows">
+      <div class="row d1"><div class="dh">● Day 1 · Arrive &amp; settle</div><div class="flow">
+        <span class="node">✈️ <b>Arrive</b></span><span class="lg">🚕 25m</span>
+        <span class="node">🏨 <b>Check-in</b> Baixa</span><span class="lg">🚶 6m</span>
+        <span class="node">🍽️ <b>Time Out</b> lunch</span><span class="lg">🚋 12m</span>
+        <span class="node">🌆 <b>Alfama</b> dinner + fado</span><span class="lg">🚶</span>
+        <span class="node">🌙 <b>Sleep</b></span>
+      </div></div>
+      <div class="row d2"><div class="dh">● Day 2 · Museums, city &amp; nightlife</div><div class="flow">
+        <span class="node">🏨 <b>Hotel</b></span><span class="lg">🚇 15m</span>
+        <span class="node">🏛️ <b>Gulbenkian</b> museum</span><span class="lg">🚕 18m</span>
+        <span class="node">🗼 <b>Belém</b> tower + pastéis</span><span class="lg">🚋 20m</span>
+        <span class="node">🍷 <b>Chiado</b> dinner + drinks</span><span class="lg">🚶</span>
+        <span class="node">🌙 <b>Sleep</b></span>
+      </div></div>
+      <div class="row d3"><div class="dh">● Day 3 · Day trip &amp; depart</div><div class="flow">
+        <span class="node">🏨 <b>Checkout</b></span><span class="lg">🚆 40m</span>
+        <span class="node">🏰 <b>Sintra</b> palaces</span><span class="lg">🚆 40m</span>
+        <span class="node">🍽️ <b>Cais do Sodré</b> late lunch</span><span class="lg">🚕 25m</span>
+        <span class="node">✈️ <b>Depart</b></span>
+      </div></div>
+    </div>
+  </div>
+</body></html>
