@@ -175,9 +175,9 @@
   /* ---- PDF dossier: real pages ---- */
   .pdfwrap{display:flex; gap:34px; align-items:flex-start; justify-content:center; max-width:1240px; margin:0 auto; width:100%}
   .pdfpages{display:flex; gap:16px; flex:none}
-  .pdfpage{width:220px; border-radius:8px; overflow:hidden; box-shadow:0 20px 50px -18px rgba(0,0,0,.8); border:1px solid var(--line)}
+  .pdfpage{width:330px; border-radius:10px; overflow:hidden; box-shadow:0 24px 60px -18px rgba(0,0,0,.85); border:1px solid var(--line)}
   .pdfpage img{width:100%; display:block}
-  .pdfpage.tall{transform:translateY(-14px)}
+  .pdfpage.tall{transform:translateY(-18px)}
   .pdfside{flex:1; min-width:300px}
   .pdfside h3{font-size:16px; margin:0 0 12px}
   .pdfsecs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px}
@@ -186,6 +186,8 @@
   .pdfflow{display:flex; gap:9px; align-items:center; flex-wrap:wrap}
   .pdfstep{display:flex; gap:7px; align-items:center; font-size:12.5px; color:var(--dim); border:1px solid var(--line); background:var(--panel); border-radius:999px; padding:7px 12px}
   .pdfstep b{color:var(--ink)} .pdfarr{color:var(--faint)}
+  .pdfhero{display:flex; gap:24px; align-items:center; justify-content:center; width:100%}
+  .pdffoot{text-align:center; color:var(--faint); font-size:14px; margin-top:26px; letter-spacing:.02em}
 
   .outs{display:flex; gap:24px; flex-wrap:wrap; justify-content:center}
   .out{width:280px; border-radius:16px; border:1px solid var(--line); background:var(--panel); padding:24px}
@@ -545,34 +547,14 @@
 <!-- OUTPUT 3 · PDF DOSSIER (real pages) -->
 <section class="stage" data-act="Deliver">
   <div class="kicker">Output 3 · the product</div>
-  <h1>PDF Travel Dossier <span class="sub">— the real document, generated live</span></h1>
-  <p class="lead">Not a mockup — this is the actual 9-page dossier our renderer produces: persona-aware cover, day-by-day itinerary, and everything you need on the ground. Generated in-app, shared by link, opened inside BeVoyager.</p>
+  <h1>PDF Travel Dossier <span class="sub">— the real, generated document</span></h1>
   <div class="body">
-    <div class="pdfwrap">
-      <div class="pdfpages">
-        <div class="pdfpage"><img src="pdf-pages/page-1.png" alt="PDF cover"></div>
-        <div class="pdfpage tall"><img src="pdf-pages/page-6.png" alt="Trip essentials"></div>
-        <div class="pdfpage"><img src="pdf-pages/page-9.png" alt="Culture & connectivity"></div>
-      </div>
-      <div class="pdfside">
-        <h3>9 pages · every section covered</h3>
-        <div class="pdfsecs">
-          <span class="pdfchip"><b>Cover</b> · persona-aware</span>
-          <span class="pdfchip"><b>Itinerary</b> · day-by-day timeline</span>
-          <span class="pdfchip"><b>Trip Essentials</b> · weather · emergency · cash</span>
-          <span class="pdfchip"><b>Packing &amp; Events</b></span>
-          <span class="pdfchip"><b>Entry &amp; Health</b> · visa · vaccines</span>
-          <span class="pdfchip"><b>Culture &amp; Connectivity</b> · etiquette · eSIM</span>
-        </div>
-        <h3>How it's shared</h3>
-        <div class="pdfflow">
-          <span class="pdfstep">🔒 <b>In-app</b> — generated &amp; stored</span><span class="pdfarr">→</span>
-          <span class="pdfstep">🔗 <b>Share link</b></span><span class="pdfarr">→</span>
-          <span class="pdfstep">📱 Opens in <b>BeVoyager app</b></span>
-        </div>
-        <div style="color:var(--green); font-size:12px; margin-top:18px">● Rendered by our live pipeline — this exact PDF ships today</div>
-      </div>
+    <div class="pdfhero">
+      <div class="pdfpage"><img src="pdf-pages/page-1.png" alt="PDF cover"></div>
+      <div class="pdfpage tall"><img src="pdf-pages/page-6.png" alt="Trip essentials"></div>
+      <div class="pdfpage"><img src="pdf-pages/page-9.png" alt="Culture & connectivity"></div>
     </div>
+    <div class="pdffoot">9 pages · in-app → share link → opens in BeVoyager</div>
   </div>
 </section>
 
