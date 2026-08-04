@@ -115,13 +115,13 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
 /* Timeline - Traction */
 .timeline-container{max-width:1000px; margin:0 auto; width:100%; position:relative}
 .timeline-line{position:absolute; left:50%; top:0; bottom:0; width:4px; background:linear-gradient(to bottom, var(--accent), var(--accent2)); transform:translateX(-50%)}
-.timeline-item{display:flex; align-items:center; margin-bottom:16px; position:relative}
-.timeline-item.left{flex-direction:row-reverse; text-align:right}
+.timeline-item{display:grid; grid-template-columns:1fr 48px 1fr; align-items:center; margin-bottom:16px; position:relative}
+.timeline-item.left{text-align:right}
 .timeline-item.right{text-align:left}
-.timeline-content{flex:1; padding:0 24px}
+.timeline-content{padding:0 24px}
 .timeline-content h3{font-size:16px; margin:0 0 4px; color:var(--ink)}
 .timeline-content p{margin:0; color:var(--dim); font-size:13px; line-height:1.45}
-.timeline-dot{width:18px; height:18px; background:var(--accent); border-radius:50%; box-shadow:var(--glow); z-index:1; border:4px solid var(--bg)}
+.timeline-dot{width:18px; height:18px; background:var(--accent); border-radius:50%; box-shadow:var(--glow); z-index:1; border:4px solid var(--bg); justify-self:center}
 .timeline-date{font-size:12px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px}
 
 /* Alignment Table */
@@ -197,8 +197,10 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   .founders,.moat-grid{grid-template-columns:1fr}
   .wf-grid{grid-template-columns:repeat(4,1fr)}
   .bm-grid{grid-template-columns:1fr}
-  .timeline-line{left:30px; transform:none}
-  .timeline-item,.timeline-item.left{flex-direction:column; text-align:left; padding-left:70px}
+  .timeline-line{left:22px; transform:none}
+  .timeline-item,.timeline-item.left{display:block; position:relative; text-align:left; padding-left:44px; margin-bottom:20px}
+  .timeline-item .timeline-content{padding:0; text-align:left}
+  .timeline-item .timeline-dot{position:absolute; left:22px; top:8px; transform:translateX(-50%)}
   .ask-container{flex-direction:column; gap:48px}
   .ask-amount{font-size:80px}
 }
@@ -263,7 +265,30 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   </div>
 </section>
 
-<!-- SLIDE 2: PROBLEM -->
+<!-- SLIDE 2: TEAM -->
+<section class="stage" data-act="Team">
+  <div class="kicker">Team</div>
+  <h1 style="text-align:center">Built for Systems, Execution,<br>and <span class="sunset-text">Real-World Complexity</span></h1>
+  <div class="body">
+    <div class="founders">
+      <div class="founder">
+        <div class="ic">👔</div>
+        <h3>Harishmaran Subbaiah Thirumaran</h3>
+        <p class="role">Founder & CEO</p>
+        <p>MSc International Business, University of Liverpool. B.E. Mechanical Engineering. Former Business & Operations Analyst at UK DWP and Sainsbury's Bank. Former co-founder of Cookooc. Brings operating grit and enterprise GTM expertise.</p>
+      </div>
+      <div class="founder">
+        <div class="ic">💻</div>
+        <h3>Kavipriyan Loganathan</h3>
+        <p class="role">Co-Founder & CTO</p>
+        <p>Systems architecture and cloud deployment. Full-stack AI orchestration and real-time database management. Built the sub-500ms voice pipeline and proprietary real-time transit graph. Deep technical execution in mobility infrastructure.</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:30px; font-size:20px; color:var(--dim)"><b style="color:var(--accent2)">We combine operating grit with deep technical execution.</b></p>
+  </div>
+</section>
+
+<!-- SLIDE 3: PROBLEM -->
 <section class="stage" data-act="Problem">
   <div class="kicker">The Problem</div>
   <h1 style="text-align:center">Static Booking Systems Fail<br>When Travel Becomes <span class="sunset-text">Dynamic</span></h1>
@@ -275,37 +300,6 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
         <div class="point"><span class="chev">›</span><p><b>No Real-Time Coordination:</b> Existing systems cannot adapt a multi-modal journey once disruption hits. Manual rebooking across operators is the only option.</p></div>
         <div class="point"><span class="chev">›</span><p><b>The Cost:</b> Missed connections, fragmented support, lost productivity. Travel is no longer a ticketing problem — it is a real-time orchestration problem.</p></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 3: WHY NOW - Fixed alignment -->
-<section class="stage" data-act="Timing">
-  <div class="kicker">Why Now</div>
-  <h1 style="text-align:center">The Mobility Stack Is Ready<br>for <span class="sunset-text">Live Orchestration</span></h1>
-  <div class="body">
-    <div class="row" style="max-width:1100px">
-      <div class="card" style="text-align:center">
-        <div class="tag" style="font-size:14px">01</div>
-        <div style="font-size:48px; margin:16px 0">🔗</div>
-        <h3>Interconnected APIs</h3>
-        <p>Transit, flight, and rideshare APIs are finally accessible enough to coordinate in real time</p>
-      </div>
-      <div class="card" style="text-align:center">
-        <div class="tag" style="font-size:14px">02</div>
-        <div style="font-size:48px; margin:16px 0">🤖</div>
-        <h3>AI Agent Maturity</h3>
-        <p>AI agents can now coordinate multi-step workflows with stateful context and observability</p>
-      </div>
-      <div class="card" style="text-align:center">
-        <div class="tag" style="font-size:14px">03</div>
-        <div style="font-size:48px; margin:16px 0">⚡</div>
-        <h3>Rising Expectations</h3>
-        <p>Users expect instant re-planning. The interface layer is ready for voice</p>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:36px; padding:24px 40px; background:var(--panel); border:1px solid var(--line); border-radius:16px; max-width:800px">
-      <p style="font-size:22px; color:var(--dim); margin:0"><b style="color:var(--accent2)">The model is becoming commodity infrastructure.</b><br>The edge is orchestration.</p>
     </div>
   </div>
 </section>
@@ -345,7 +339,38 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   </div>
 </section>
 
-<!-- SLIDE 5: HOW IT WORKS - Fixed text alignment -->
+<!-- SLIDE 5: WHY NOW - Fixed alignment -->
+<section class="stage" data-act="Timing">
+  <div class="kicker">Why Now</div>
+  <h1 style="text-align:center">The Mobility Stack Is Ready<br>for <span class="sunset-text">Live Orchestration</span></h1>
+  <div class="body">
+    <div class="row" style="max-width:1100px">
+      <div class="card" style="text-align:center">
+        <div class="tag" style="font-size:14px">01</div>
+        <div style="font-size:48px; margin:16px 0">🔗</div>
+        <h3>Interconnected APIs</h3>
+        <p>Transit, flight, and rideshare APIs are finally accessible enough to coordinate in real time</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="tag" style="font-size:14px">02</div>
+        <div style="font-size:48px; margin:16px 0">🤖</div>
+        <h3>AI Agent Maturity</h3>
+        <p>AI agents can now coordinate multi-step workflows with stateful context and observability</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="tag" style="font-size:14px">03</div>
+        <div style="font-size:48px; margin:16px 0">⚡</div>
+        <h3>Rising Expectations</h3>
+        <p>Users expect instant re-planning. The interface layer is ready for voice</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:36px; padding:24px 40px; background:var(--panel); border:1px solid var(--line); border-radius:16px; max-width:800px">
+      <p style="font-size:22px; color:var(--dim); margin:0"><b style="color:var(--accent2)">The model is becoming commodity infrastructure.</b><br>The edge is orchestration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: HOW IT WORKS - Fixed text alignment -->
 <section class="stage" data-act="System">
   <div class="kicker">How It Works</div>
   <h1 style="text-align:center">A Stateful Orchestration Engine<br>Built for <span class="sunset-text">Real-World Mobility</span></h1>
@@ -378,7 +403,7 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   </div>
 </section>
 
-<!-- SLIDE 6: PRODUCT DEMO -->
+<!-- SLIDE 7: PRODUCT DEMO -->
 <section class="stage" data-act="Demo">
   <div class="kicker">Product Demo</div>
   <h1 style="text-align:center">Watch the Agent Resolve a Disruption<br>in <span class="sunset-text">Sub-500ms</span></h1>
@@ -421,7 +446,7 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   </div>
 </section>
 
-<!-- SLIDE 7: 14 WORKFLOWS - Attractive animation -->
+<!-- SLIDE 8: 14 WORKFLOWS - Attractive animation -->
 <section class="stage" data-act="Workflows">
   <div class="kicker">Orchestration Layer</div>
   <h1 style="text-align:center">14 Parallel Workflows,<br><span class="sunset-text">One Unified Context</span></h1>
@@ -452,14 +477,121 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   </div>
 </section>
 
-<!-- SLIDE 8: MARKET -->
+<!-- SLIDE 9: DEFENSIBILITY -->
+<section class="stage" data-act="Moat">
+  <div class="kicker">Defensibility</div>
+  <h1 style="text-align:center">We Are Building Durable Advantage<br>at the <span class="sunset-text">Orchestration Layer</span></h1>
+  <div class="body">
+    <div class="moat-grid">
+      <div class="moat-card">
+        <div class="moat-icon">🧠</div>
+        <h3>Stateful Context Memory</h3>
+        <p>Structured vector graph tracking individual transit preferences against live infrastructure failures. Every interaction trains the system.</p>
+      </div>
+      <div class="moat-card">
+        <div class="moat-icon">🔀</div>
+        <h3>Multi-Agent Coordination</h3>
+        <p>Managing compounding errors when multiple autonomous agents conflict during re-routes. Patent-pending conflict resolution.</p>
+      </div>
+      <div class="moat-card">
+        <div class="moat-icon">🛡️</div>
+        <h3>High Incumbent Barrier</h3>
+        <p>Legacy systems built for static querying. Bolt-on AI incompatible with real-time orchestration. Requires ground-up architecture.</p>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:34px; max-width:900px">
+      <div class="card" style="text-align:center">
+        <h3>End-to-End Observability</h3>
+        <p>Voice, reasoning, cost, latency — all traced. We can debug and improve the agent measurably over time.</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <h3>Swappable Model Layer</h3>
+        <p>Route to cheapest model that passes. Our edge is the workflow layer, not any single LLM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 10: LEAP4 ALIGNMENT -->
+<section class="stage" data-act="Leap4">
+  <div class="kicker">Strategic Fit</div>
+  <h1 style="text-align:center">Alignment with LEAP4's<br><span class="sunset-text">Motion Economy</span> Thesis</h1>
+  <div class="body">
+    <table class="ttable">
+      <tr>
+        <td>Software Intelligence</td>
+        <td>Multi-agent context orchestration via Claude (Bedrock)</td>
+        <td>High-margin software layer on physical mobility</td>
+      </tr>
+      <tr>
+        <td>Resilient Infrastructure</td>
+        <td>Real-time EU vector routing engine using Chroma</td>
+        <td>Low-latency fault resolution during transit delays</td>
+      </tr>
+      <tr>
+        <td>Interconnected Systems</td>
+        <td>Multi-modal travel API integration (Air, Rail, Rides)</td>
+        <td>Direct alignment with connected OEM/Transit trends</td>
+      </tr>
+      <tr>
+        <td>Frontier Technology</td>
+        <td>Sub-500ms edge latency orchestration</td>
+        <td>Proprietary context memory & agent coordination</td>
+      </tr>
+      <tr>
+        <td>Automation</td>
+        <td>Autonomous re-routing protocols</td>
+        <td>Voice-triggered workflows eliminate manual intervention</td>
+      </tr>
+      <tr>
+        <td>Industrial Tech</td>
+        <td>Infrastructure-grade reliability</td>
+        <td>Built for scale across European mobility corridors</td>
+      </tr>
+    </table>
+    <p style="text-align:center; margin-top:26px; font-size:20px; color:var(--dim)"><b style="color:var(--accent2)">If Leap4 is backing the motion economy, this is the layer that makes it work.</b></p>
+  </div>
+</section>
+
+<!-- SLIDE 11: BUSINESS MODEL - Large cards at bottom -->
+<section class="stage" data-act="Business">
+  <div class="kicker">Business Model</div>
+  <h1 style="text-align:center; margin-bottom:20px">Start With Trip Revenue.<br>Expand Into <span class="sunset-text">Infrastructure Revenue</span>.</h1>
+  <div class="body" style="justify-content:flex-end; padding-bottom:40px">
+    <div class="bm-grid">
+      <div class="bm-card">
+        <div class="phase">Phase 1</div>
+        <h3>Trip Fee</h3>
+        <div class="price">£9.99</div>
+        <p>Per standard trip (1-4 travelers)</p>
+        <p style="margin-top:20px; font-size:16px; color:var(--dim)">Premium: £19.99 / group trip (5-10)</p>
+      </div>
+      <div class="bm-card">
+        <div class="phase">Phase 2</div>
+        <h3>Take-Rate</h3>
+        <div class="price">2-5%</div>
+        <p>On bookable transactions via Amadeus or Duffel integration</p>
+        <p style="margin-top:20px; font-size:16px; color:var(--dim)">Flights, hotels, rail, experiences</p>
+      </div>
+      <div class="bm-card">
+        <div class="phase">Phase 3</div>
+        <h3>Enterprise</h3>
+        <div class="price" style="font-size:48px">API</div>
+        <p>Licensing to corporate travel platforms and OEM mobility systems</p>
+        <p style="margin-top:20px; font-size:16px; color:var(--dim)">Recurring infrastructure revenue</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 12: MARKET -->
 <section class="stage" data-act="Market">
   <div class="kicker">Market Opportunity</div>
   <h1 style="text-align:center">From Tech Professionals<br>to <span class="sunset-text">Mobility Infrastructure</span></h1>
   <div class="body">
     <div style="width:100%; max-width:1000px">
       <div class="market-container">
-        <div class="market-bar"><span class="market-label">TAM</span><div class="market-track"><div class="market-fill tam">$900B</div></div></div>
+        <div class="market-bar"><span class="market-label">TAM</span><div class="market-track"><div class="market-fill tam">€900B</div></div></div>
         <div class="market-bar"><span class="market-label">SAM</span><div class="market-track"><div class="market-fill sam">€84B</div></div></div>
         <div class="market-bar"><span class="market-label">SOM</span><div class="market-track"><div class="market-fill som">€2.1B</div></div></div>
       </div>
@@ -485,7 +617,7 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   </div>
 </section>
 
-<!-- SLIDE 9: TRACTION - Timeline with state line -->
+<!-- SLIDE 13: TRACTION - Timeline with state line -->
 <section class="stage" data-act="Traction">
   <div class="kicker">Traction</div>
   <h1 style="text-align:center; font-size:40px">The Core Loop Is <span class="sunset-text">In Build Stage</span></h1>
@@ -534,136 +666,6 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
       <div style="font-size:14px; font-weight:600; margin-top:2px">Infrastructure Credits Secured</div>
       <div style="font-size:12px; margin-top:2px; opacity:0.9">AWS · Google Cloud · NVIDIA · Cloudflare · Stripe + 15 partners</div>
     </div>
-  </div>
-</section>
-
-<!-- SLIDE 10: LEAP4 ALIGNMENT -->
-<section class="stage" data-act="Leap4">
-  <div class="kicker">Strategic Fit</div>
-  <h1 style="text-align:center">Alignment with LEAP4's<br><span class="sunset-text">Motion Economy</span> Thesis</h1>
-  <div class="body">
-    <table class="ttable">
-      <tr>
-        <td>Software Intelligence</td>
-        <td>Multi-agent context orchestration via Claude (Bedrock)</td>
-        <td>High-margin software layer on physical mobility</td>
-      </tr>
-      <tr>
-        <td>Resilient Infrastructure</td>
-        <td>Real-time EU vector routing engine using Chroma</td>
-        <td>Low-latency fault resolution during transit delays</td>
-      </tr>
-      <tr>
-        <td>Interconnected Systems</td>
-        <td>Multi-modal travel API integration (Air, Rail, Rides)</td>
-        <td>Direct alignment with connected OEM/Transit trends</td>
-      </tr>
-      <tr>
-        <td>Frontier Technology</td>
-        <td>Sub-500ms edge latency orchestration</td>
-        <td>Proprietary context memory & agent coordination</td>
-      </tr>
-      <tr>
-        <td>Automation</td>
-        <td>Autonomous re-routing protocols</td>
-        <td>Voice-triggered workflows eliminate manual intervention</td>
-      </tr>
-      <tr>
-        <td>Industrial Tech</td>
-        <td>Infrastructure-grade reliability</td>
-        <td>Built for scale across European mobility corridors</td>
-      </tr>
-    </table>
-    <p style="text-align:center; margin-top:26px; font-size:20px; color:var(--dim)"><b style="color:var(--accent2)">If Leap4 is backing the motion economy, this is the layer that makes it work.</b></p>
-  </div>
-</section>
-
-<!-- SLIDE 11: DEFENSIBILITY -->
-<section class="stage" data-act="Moat">
-  <div class="kicker">Defensibility</div>
-  <h1 style="text-align:center">We Are Building Durable Advantage<br>at the <span class="sunset-text">Orchestration Layer</span></h1>
-  <div class="body">
-    <div class="moat-grid">
-      <div class="moat-card">
-        <div class="moat-icon">🧠</div>
-        <h3>Stateful Context Memory</h3>
-        <p>Structured vector graph tracking individual transit preferences against live infrastructure failures. Every interaction trains the system.</p>
-      </div>
-      <div class="moat-card">
-        <div class="moat-icon">🔀</div>
-        <h3>Multi-Agent Coordination</h3>
-        <p>Managing compounding errors when multiple autonomous agents conflict during re-routes. Patent-pending conflict resolution.</p>
-      </div>
-      <div class="moat-card">
-        <div class="moat-icon">🛡️</div>
-        <h3>High Incumbent Barrier</h3>
-        <p>Legacy systems built for static querying. Bolt-on AI incompatible with real-time orchestration. Requires ground-up architecture.</p>
-      </div>
-    </div>
-    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:34px; max-width:900px">
-      <div class="card" style="text-align:center">
-        <h3>End-to-End Observability</h3>
-        <p>Voice, reasoning, cost, latency — all traced. We can debug and improve the agent measurably over time.</p>
-      </div>
-      <div class="card" style="text-align:center">
-        <h3>Swappable Model Layer</h3>
-        <p>Route to cheapest model that passes. Our edge is the workflow layer, not any single LLM.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 12: BUSINESS MODEL - Large cards at bottom -->
-<section class="stage" data-act="Business">
-  <div class="kicker">Business Model</div>
-  <h1 style="text-align:center; margin-bottom:20px">Start With Trip Revenue.<br>Expand Into <span class="sunset-text">Infrastructure Revenue</span>.</h1>
-  <div class="body" style="justify-content:flex-end; padding-bottom:40px">
-    <div class="bm-grid">
-      <div class="bm-card">
-        <div class="phase">Phase 1</div>
-        <h3>Trip Fee</h3>
-        <div class="price">£9.99</div>
-        <p>Per standard trip (1-4 travelers)</p>
-        <p style="margin-top:20px; font-size:16px; color:var(--dim)">Premium: £19.99 / group trip (5-10)</p>
-      </div>
-      <div class="bm-card">
-        <div class="phase">Phase 2</div>
-        <h3>Take-Rate</h3>
-        <div class="price">2-5%</div>
-        <p>On bookable transactions via Amadeus or Duffel integration</p>
-        <p style="margin-top:20px; font-size:16px; color:var(--dim)">Flights, hotels, rail, experiences</p>
-      </div>
-      <div class="bm-card">
-        <div class="phase">Phase 3</div>
-        <h3>Enterprise</h3>
-        <div class="price" style="font-size:48px">API</div>
-        <p>Licensing to corporate travel platforms and OEM mobility systems</p>
-        <p style="margin-top:20px; font-size:16px; color:var(--dim)">Recurring infrastructure revenue</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 13: TEAM -->
-<section class="stage" data-act="Team">
-  <div class="kicker">Team</div>
-  <h1 style="text-align:center">Built for Systems, Execution,<br>and <span class="sunset-text">Real-World Complexity</span></h1>
-  <div class="body">
-    <div class="founders">
-      <div class="founder">
-        <div class="ic">👔</div>
-        <h3>Harishmaran Subbaiah Thirumaran</h3>
-        <p class="role">Founder & CEO</p>
-        <p>MSc International Business, University of Liverpool. B.E. Mechanical Engineering. Former Business & Operations Analyst at UK DWP and Sainsbury's Bank. Former co-founder of Cookooc. Brings operating grit and enterprise GTM expertise.</p>
-      </div>
-      <div class="founder">
-        <div class="ic">💻</div>
-        <h3>Kavipriyan Loganathan</h3>
-        <p class="role">Co-Founder & CTO</p>
-        <p>Systems architecture and cloud deployment. Full-stack AI orchestration and real-time database management. Built the sub-500ms voice pipeline and proprietary real-time transit graph. Deep technical execution in mobility infrastructure.</p>
-      </div>
-    </div>
-    <p style="text-align:center; margin-top:30px; font-size:20px; color:var(--dim)"><b style="color:var(--accent2)">We combine operating grit with deep technical execution.</b></p>
   </div>
 </section>
 
