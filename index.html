@@ -90,6 +90,29 @@
   .concurrent{margin-top:20px; color:var(--cyan); font-size:15px; text-align:center; opacity:0; transition:.4s}
   .concurrent.show{opacity:1}
 
+  /* orchestration concept screen */
+  .concept{display:flex; align-items:center; gap:30px; justify-content:center; flex-wrap:wrap; max-width:1150px; margin:0 auto}
+  .concept .core{width:230px; height:230px; border-radius:26px; background:var(--panel); border:2px solid var(--accent); box-shadow:var(--glow);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; flex:none}
+  .concept .core .ic{font-size:40px}
+  .concept .core b{font-size:20px; margin-top:8px}
+  .concept .core small{color:var(--dim); font-size:13px; margin-top:4px}
+  .concept .rays{flex:1; min-width:360px}
+  .concept .rays .big{font-size:30px; font-weight:700; line-height:1.25; margin:0}
+  .concept .rays .big em{color:var(--cyan); font-style:normal}
+  .concept .rays p{color:var(--dim); font-size:17px; margin:16px 0 0}
+  .cbadges{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px}
+  .cbadge{font-size:12px; color:var(--cyan); border:1px solid rgba(34,211,238,.3); background:rgba(34,211,238,.07); border-radius:999px; padding:4px 11px}
+
+  /* orchestration breadth grid — 14 bigger cards */
+  .ogrid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; max-width:1220px; margin:0 auto; width:100%}
+  .ocard{background:var(--panel); border:1px solid var(--line); border-radius:13px; padding:14px 15px; text-align:left; opacity:.3; transform:scale(.97); transition:.3s}
+  .ocard.lit{opacity:1; transform:scale(1); border-color:var(--cyan); box-shadow:0 0 0 1px rgba(34,211,238,.35),0 0 18px -8px rgba(34,211,238,.6)}
+  .ocard .ic{font-size:20px}
+  .ocard b{display:block; font-size:14px; margin-top:5px; color:var(--ink)}
+  .ocard .prov{color:var(--accent2); font-size:11px; margin-top:3px; line-height:1.35}
+  .ocard .why{color:var(--faint); font-size:11px; margin-top:4px; line-height:1.35}
+
   .outs{display:flex; gap:24px; flex-wrap:wrap; justify-content:center}
   .out{width:280px; border-radius:16px; border:1px solid var(--line); background:var(--panel); padding:24px}
   .out .ic{font-size:30px}
@@ -349,39 +372,51 @@
 </section>
 
 <!-- ACT 3 · RESEARCH (the wow) -->
-<section class="stage" data-act="Research">
+<!-- ORCHESTRATION SCREEN 1 · THE CONCEPT -->
+<section class="stage" data-act="Orchestrate">
   <div class="example">Worked example: <b>Lisbon, 5 days, culture + food</b></div>
-  <div class="kicker">Act 3 — Research · the core</div>
-  <h1>8 researchers, <span class="sub">all at once</span></h1>
-  <p class="lead">From one intake, the graph <b>fans out in parallel</b> — eight specialised workflows run concurrently, not one after another. That's why a full plan comes back in seconds.</p>
+  <div class="kicker">Act 3 — Orchestration · the core</div>
+  <h1>This is the core. <span class="sub">One request, many live sources — at once.</span></h1>
   <div class="body">
-    <div>
-      <div class="grid8" id="fan">
-        <div class="fan"><div class="ic">🎟️</div><b>Viator</b><small>activities & tours</small></div>
-        <div class="fan"><div class="ic">🎉</div><b>Events</b><small>what's on</small></div>
-        <div class="fan"><div class="ic">🚉</div><b>Transit</b><small>getting around</small></div>
-        <div class="fan"><div class="ic">☀️</div><b>Weather</b><small>forecast</small></div>
-        <div class="fan"><div class="ic">💱</div><b>Currency</b><small>cash & cards</small></div>
-        <div class="fan"><div class="ic">🥾</div><b>Outdoors</b><small>nature & walks</small></div>
-        <div class="fan"><div class="ic">🧳</div><b>Packing</b><small>what to bring</small></div>
-        <div class="fan"><div class="ic">🗺️</div><b>Day trips</b><small>Sintra, Cascais…</small></div>
+    <div class="concept">
+      <div class="core"><div class="ic">🧠</div><b>Orchestration engine</b><small>LangGraph · stateful · Postgres-checkpointed</small></div>
+      <div class="rays">
+        <p class="big">From a single intake, the engine <em>fans out in parallel</em> across a dozen live data sources — not one search after another.</p>
+        <p>Each runs concurrently, streams back, and merges into one coherent plan. That's why a full itinerary returns in <b style="color:var(--ink)">seconds</b>, not minutes — and why this is hard to copy: the orchestration <em style="color:var(--cyan);font-style:normal">is</em> the product.</p>
+        <div class="cbadges">
+          <span class="cbadge">parallel fan-out</span>
+          <span class="cbadge">real-time, not cached</span>
+          <span class="cbadge">stateful + resumable</span>
+          <span class="cbadge">14+ live sources</span>
+        </div>
       </div>
-      <div class="concurrent" id="concurrentMsg">⚡ All 8 running concurrently · via Google Places/Maps · Firecrawl · Exa</div>
     </div>
   </div>
 </section>
 
-<section class="stage" data-act="Research">
-  <div class="kicker">Act 3 — Research</div>
-  <h1>Merge, compose, shape <span class="sub">— one coherent plan</span></h1>
-  <p class="lead">The eight streams merge; the LLM composes them into a single itinerary; a shape step formats it for the interface.</p>
+<!-- ORCHESTRATION SCREEN 2 · THE BREADTH GRID -->
+<section class="stage" data-act="Orchestrate">
+  <div class="kicker">Act 3 — Orchestration · what runs in parallel</div>
+  <h1>14 workflows, <span class="sub">firing together</span></h1>
   <div class="body">
-    <div class="pipe">
-      <div class="node"><div class="ic">🔀</div><b>Merge</b><small>8 results → one context</small></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="ic">✍️</div><b>Compose</b><small>GPT-4o-mini writes the plan</small></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="ic">📐</div><b>Shape</b><small>format for UI</small></div>
+    <div style="width:100%">
+      <div class="ogrid" id="fan">
+        <div class="ocard"><div class="ic">🎟️</div><b>Activities &amp; Tours</b><div class="prov">Viator · GetYourGuide</div><div class="why">Bookable things to do, ranked to taste</div></div>
+        <div class="ocard"><div class="ic">🎉</div><b>Events &amp; Shows</b><div class="prov">Ticketmaster · Eventbrite</div><div class="why">What's on during the exact dates</div></div>
+        <div class="ocard"><div class="ic">🚆</div><b>Transport</b><div class="prov">Flights · trains · cabs · airport transfers · public transit</div><div class="why">Every mode, door to door</div></div>
+        <div class="ocard"><div class="ic">☀️</div><b>Weather</b><div class="prov">Open-Meteo</div><div class="why">Per-day forecast for the trip window</div></div>
+        <div class="ocard"><div class="ic">🆘</div><b>Emergency &amp; Safety</b><div class="prov">Local police · help lines</div><div class="why">Country numbers, ready before you land</div></div>
+        <div class="ocard"><div class="ic">📶</div><b>Connectivity</b><div class="prov">eSIM &amp; local SIM</div><div class="why">Stay online the moment you arrive</div></div>
+        <div class="ocard"><div class="ic">💱</div><b>Currency</b><div class="prov">FX rates</div><div class="why">Cash vs card, live conversion</div></div>
+        <div class="ocard"><div class="ic">🥾</div><b>Outdoor Activities</b><div class="prov">Google Places · Exa</div><div class="why">Hiking, nature, active options</div></div>
+        <div class="ocard"><div class="ic">🧳</div><b>Packing</b><div class="prov">weather + activity aware</div><div class="why">List tailored to plan &amp; climate</div></div>
+        <div class="ocard"><div class="ic">🛂</div><b>Entry &amp; Visa</b><div class="prov">RapidAPI visa data</div><div class="why">Requirements &amp; docs by nationality</div></div>
+        <div class="ocard"><div class="ic">🗺️</div><b>Day Trips</b><div class="prov">Google Places</div><div class="why">Nearby escapes — Sintra, Cascais…</div></div>
+        <div class="ocard"><div class="ic">🍽️</div><b>Food Preferences</b><div class="prov">Google Places</div><div class="why">Restaurants matched to diet &amp; taste</div></div>
+        <div class="ocard"><div class="ic">🧸</div><b>Kids-Friendly</b><div class="prov">Google Places</div><div class="why">Family-safe spots &amp; activities</div></div>
+        <div class="ocard"><div class="ic">🌍</div><b>Live Mapping</b><div class="prov">Google Maps</div><div class="why">Every stop pinned &amp; routed</div></div>
+      </div>
+      <div class="concurrent" id="concurrentMsg">⚡ All running concurrently — then merged &amp; composed into one itinerary</div>
     </div>
   </div>
 </section>
@@ -562,7 +597,7 @@
     // parallel fan-out
     const fan=s.querySelector('#fan');
     if(fan){
-      const fs=[...s.querySelectorAll('.fan')];
+      const fs=[...fan.querySelectorAll('.fan, .ocard')];
       const msg=s.querySelector('#concurrentMsg');
       fs.forEach(f=>f.classList.remove('lit')); if(msg)msg.classList.remove('show');
       // all light near-simultaneously to sell "parallel"
