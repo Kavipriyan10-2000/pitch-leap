@@ -1,0 +1,48 @@
+<!doctype html><html><head><meta charset="utf-8"><title>V1</title>
+<!-- PROTOTYPE VARIANT — throwaway, for comparison only -->
+<style>
+  :root{--bg:#07060a;--panel:#0e0d15;--panel2:#14121d;--line:#241f33;--ink:#f5f2ea;--dim:#9a93a8;--faint:#5c5570;--accent:#f97316;--accent2:#ffb066;--green:#22c55e;--cyan:#22d3ee}
+  *{box-sizing:border-box} body{margin:0;background:radial-gradient(1200px 800px at 70% -10%,#16121f,#07060a 55%);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;padding:48px 64px 40px;min-height:100vh}
+  .kicker{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:42px;margin:.15em 0 .1em;font-weight:700;letter-spacing:-.02em}
+  h1 .sub{color:var(--dim);font-weight:400;font-size:24px}
+  .lead{color:var(--dim);font-size:18px;max-width:760px;margin:.2em 0 28px}
+  .days{display:flex;gap:20px;align-items:flex-start}
+  .day{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .day h3{margin:0 0 4px;font-size:16px}
+  .day .wx{font-size:12px;color:var(--cyan);margin-bottom:14px}
+  .acard{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px 13px;margin-bottom:12px}
+  .acard .t{font-size:14px;font-weight:600}
+  .acard .m{font-size:12px;color:var(--faint);margin:3px 0 9px}
+  .acard .badge{display:inline-block;font-size:10px;color:var(--accent2);border:1px solid rgba(249,115,22,.3);border-radius:999px;padding:2px 8px;margin-bottom:8px}
+  .btns{display:flex;gap:8px}
+  .btns button{flex:1;font-size:12px;border-radius:8px;padding:6px;border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer}
+  .btns .go{border-color:var(--green);color:var(--green)}
+  .personal{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .pchip{font-size:13px;color:var(--dim);border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:7px 14px}
+  .pchip b{color:var(--accent2)}
+</style></head><body>
+  <div class="kicker">Output 1 · the product</div>
+  <h1>Personalized Itinerary <span class="sub">— tuned to you, not a template</span></h1>
+  <p class="lead">Every card is chosen for <b>this</b> traveler — budget, pace, weather, who's coming. Tap Going or Skip and the whole plan rebuilds live.</p>
+  <div class="days">
+    <div class="day"><h3>Day 1 · Lisbon</h3><div class="wx">☀️ 24° · sunny</div>
+      <div class="acard"><span class="badge">matches: culture</span><div class="t">🎟️ Alfama walking tour</div><div class="m">Viator · 2h · €18</div><div class="btns"><button class="go">Going</button><button>Skip</button></div></div>
+      <div class="acard"><span class="badge">food pref: seafood</span><div class="t">🍽️ Time Out Market</div><div class="m">lunch · budget-friendly</div><div class="btns"><button class="go">Going</button><button>Skip</button></div></div>
+    </div>
+    <div class="day"><h3>Day 2 · Sintra</h3><div class="wx">⛅ 21° · light cloud</div>
+      <div class="acard"><span class="badge">day trip</span><div class="t">🚆 Train to Sintra</div><div class="m">40 min · covered by pass</div><div class="btns"><button class="go">Going</button><button>Skip</button></div></div>
+      <div class="acard"><span class="badge">weather-aware</span><div class="t">🏰 Pena Palace</div><div class="m">outdoor · best before rain</div><div class="btns"><button class="go">Going</button><button>Skip</button></div></div>
+    </div>
+    <div class="day"><h3>Day 3 · Belém</h3><div class="wx">🌧️ 19° · showers</div>
+      <div class="acard"><span class="badge">rain backup</span><div class="t">🏛️ Maritime Museum</div><div class="m">indoor · swapped from beach</div><div class="btns"><button class="go">Going</button><button>Skip</button></div></div>
+      <div class="acard"><span class="badge">kids-friendly</span><div class="t">🧁 Pastéis de Belém</div><div class="m">family favourite</div><div class="btns"><button class="go">Going</button><button>Skip</button></div></div>
+    </div>
+  </div>
+  <div class="personal">
+    <span class="pchip">Rebuilt from <b>your</b> preferences</span>
+    <span class="pchip"><b>Weather-aware</b> — rainy day swapped indoors</span>
+    <span class="pchip"><b>Budget-matched</b> picks</span>
+    <span class="pchip">Going / Skip → <b>replans instantly</b></span>
+  </div>
+</body></html>

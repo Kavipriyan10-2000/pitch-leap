@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8"><title>V3</title>
+<!-- PROTOTYPE VARIANT — throwaway, for comparison only -->
+<style>
+  :root{--bg:#07060a;--panel:#0e0d15;--panel2:#14121d;--line:#241f33;--ink:#f5f2ea;--dim:#9a93a8;--faint:#5c5570;--accent:#f97316;--accent2:#ffb066;--green:#22c55e;--cyan:#22d3ee;--red:#ef4444}
+  *{box-sizing:border-box} body{margin:0;background:radial-gradient(1200px 800px at 70% -10%,#16121f,#07060a 55%);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;padding:48px 64px;min-height:100vh}
+  .kicker{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:42px;margin:.15em 0 .1em;font-weight:700;letter-spacing:-.02em}
+  h1 .sub{color:var(--dim);font-weight:400;font-size:24px}
+  .lead{color:var(--dim);font-size:18px;max-width:820px;margin:.2em 0 24px}
+  .split{display:flex;gap:26px;align-items:stretch}
+  .col{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .col .h{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+  .col.after{border-color:var(--accent);box-shadow:0 0 0 1px rgba(249,115,22,.35),0 0 26px -8px rgba(249,115,22,.5)}
+  .col.after .h{color:var(--accent)}
+  .item{display:flex;gap:10px;align-items:baseline;font-size:14px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .item:last-child{border-bottom:0}
+  .item .tag{margin-left:auto;font-size:11px}
+  .muted{color:var(--faint)} .strike{text-decoration:line-through;color:var(--faint)}
+  .new{color:var(--accent2)}
+  .arrowcol{display:flex;flex-direction:column;justify-content:center;align-items:center;color:var(--accent);gap:6px}
+  .arrowcol .big{font-size:30px} .arrowcol small{color:var(--dim);font-size:12px;text-align:center;max-width:110px}
+  .feats{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+  .fchip{font-size:13px;color:var(--dim);border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:7px 14px}
+  .fchip b{color:var(--accent2)}
+</style></head><body>
+  <div class="kicker">Output 1 · the product</div>
+  <h1>Personalized Itinerary <span class="sub">— it reshapes around you</span></h1>
+  <p class="lead">The selling point in one view: a generic plan on the left, <b>your</b> plan on the right. One tap, one weather change, and it re-orchestrates.</p>
+  <div class="split">
+    <div class="col">
+      <div class="h">Generic booking engine</div>
+      <div class="item">🏖️ Beach afternoon <span class="tag muted">fixed</span></div>
+      <div class="item">🍔 Tourist-strip lunch <span class="tag muted">generic</span></div>
+      <div class="item">🎟️ Same top-10 list <span class="tag muted">everyone</span></div>
+      <div class="item">📄 Static — you re-plan by hand <span class="tag muted">manual</span></div>
+    </div>
+    <div class="arrowcol"><div class="big">→</div><small>orchestrates to the traveller</small></div>
+    <div class="col after">
+      <div class="h">Your personalized plan</div>
+      <div class="item"><span class="strike">🏖️ Beach</span> → 🏛️ Museum <span class="tag new">rain-aware</span></div>
+      <div class="item">🍽️ Seafood, budget-matched <span class="tag new">food pref</span></div>
+      <div class="item">🎟️ Picks for culture + pace <span class="tag new">tuned</span></div>
+      <div class="item">⚡ Tap Going/Skip → rebuilds <span class="tag new">live</span></div>
+    </div>
+  </div>
+  <div class="feats">
+    <span class="fchip">Interactive cards — <b>activities · food · transport</b></span>
+    <span class="fchip"><b>Weather-aware</b> swaps</span>
+    <span class="fchip"><b>Preference-matched</b> (budget · pace · kids · diet)</span>
+    <span class="fchip">Going/Skip → <b>instant replan</b></span>
+  </div>
+</body></html>

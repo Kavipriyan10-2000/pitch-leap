@@ -113,6 +113,26 @@
   .ocard .prov{color:var(--accent2); font-size:11px; margin-top:3px; line-height:1.35}
   .ocard .why{color:var(--faint); font-size:11px; margin-top:4px; line-height:1.35}
 
+  /* ---- personalized itinerary product cards ---- */
+  .pcards{display:flex; gap:24px; justify-content:center; align-items:stretch; flex-wrap:wrap; max-width:1180px; margin:0 auto}
+  .pc{width:340px; background:#100e18; border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column}
+  .pc .img{height:170px; position:relative; display:flex; align-items:flex-start; padding:14px; gap:8px}
+  .pc .img.activity{background:linear-gradient(160deg,#5a6b7a,#20262e 70%)}
+  .pc .img.transport{background:linear-gradient(160deg,#243447,#0e1420 70%)}
+  .pc .img.cafe{background:linear-gradient(160deg,#7a5a3a,#2a1e12 70%)}
+  .pc .b{font-size:11px; font-weight:700; letter-spacing:.06em; border-radius:999px; padding:5px 11px; background:rgba(0,0,0,.45); backdrop-filter:blur(4px)}
+  .pc .b.prov{color:var(--accent2)} .pc .b.free{color:var(--green)} .pc .b.rate{color:var(--accent2)}
+  .pc .b.g{color:#6ea8ff}
+  .pc .body2{padding:16px 18px 18px; display:flex; flex-direction:column; flex:1}
+  .pc .ttl{font-size:17px; font-weight:700; line-height:1.3}
+  .pc .meta{color:var(--faint); font-size:13px; margin:6px 0 0}
+  .pc .price{color:var(--accent); font-size:15px; font-weight:700; margin:8px 0 0}
+  .pc .quote{color:var(--dim); font-size:13px; font-style:italic; margin:8px 0 0; line-height:1.4}
+  .pc .pref{display:inline-block; font-size:11px; color:var(--accent2); border:1px solid rgba(249,115,22,.3); border-radius:999px; padding:3px 9px; margin-top:10px}
+  .pc .go{display:flex; gap:10px; margin-top:14px}
+  .pc .go button{flex:1; font-size:14px; font-weight:600; border-radius:10px; padding:9px; border:1px solid var(--line); background:transparent; color:var(--dim); cursor:pointer}
+  .pc .go .going{border-color:var(--accent); color:var(--accent); background:rgba(249,115,22,.08)}
+
   .outs{display:flex; gap:24px; flex-wrap:wrap; justify-content:center}
   .out{width:280px; border-radius:16px; border:1px solid var(--line); background:var(--panel); padding:24px}
   .out .ic{font-size:30px}
@@ -401,15 +421,47 @@
 
 <!-- ACT 4 · DELIVER -->
 <section class="stage" data-act="Deliver">
-  <div class="example">Worked example: <b>Lisbon plan is ready</b></div>
-  <div class="kicker">Act 4 — Deliver</div>
-  <h1>Rendered as live UI <span class="sub">— Tambo, not a wall of text</span></h1>
-  <p class="lead">Tambo turns the plan into interactive components. The user doesn't read a paragraph — they get cards they can act on.</p>
+  <div class="kicker">Output 1 · the product</div>
+  <h1>Personalized Itinerary <span class="sub">— you decide, it replans</span></h1>
+  <p class="lead">Not a static list — live cards tuned to <b>you</b>. Activities, transport, cafés matched to your taste. Tap Going or Skip; the plan rebuilds around your choices.</p>
   <div class="body">
-    <div class="row">
-      <div class="card"><div class="tag">Widget</div><h3>🎟️ Activity cards</h3><p>Viator tours — Going / Skip → itinerary rebuilds</p></div>
-      <div class="card"><div class="tag">Widget</div><h3>🗺️ Live map</h3><p>Google — every stop pinned</p></div>
-      <div class="card"><div class="tag">Widget</div><h3>☀️ Weather</h3><p>per-day forecast for the trip window</p></div>
+    <div class="pcards">
+      <div class="pc">
+        <div class="img activity">
+          <span class="b prov">VIATOR</span><span class="b free">FREE CANCEL</span><span class="b rate">5.0 ★</span>
+        </div>
+        <div class="body2">
+          <div class="ttl">Exclusive Guided Museum Tour</div>
+          <div class="meta">2h · skip-the-line · English guide</div>
+          <div class="price">From €95</div>
+          <span class="pref">matches: culture &amp; history</span>
+          <div class="go"><button class="going">✓ Going</button><button>✕ Skip</button></div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="img transport">
+          <span class="b g">GOOGLE</span><span class="b rate">4.1 ★</span>
+        </div>
+        <div class="body2">
+          <div class="ttl">Victoria Coach Station</div>
+          <div class="meta">164 Buckingham Palace Rd</div>
+          <div class="quote">"One of those places that just works — especially moving between cities…"</div>
+          <span class="pref">route: airport → city</span>
+          <div class="go"><button class="going">✓ Going</button><button>✕ Skip</button></div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="img cafe">
+          <span class="b g">GOOGLE</span><span class="b rate">4.6 ★</span>
+        </div>
+        <div class="body2">
+          <div class="ttl">Café da Garagem</div>
+          <div class="meta">viewpoint café · light bites</div>
+          <div class="quote">"Quiet spot with a terrace view — great flat white and pastries."</div>
+          <span class="pref">food pref: coffee &amp; brunch</span>
+          <div class="go"><button class="going">✓ Going</button><button>✕ Skip</button></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
