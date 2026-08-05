@@ -315,6 +315,15 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   .q.lit{border-color:var(--accent); box-shadow:var(--glow)}
   .q .n{width:26px; height:26px; flex:none; border-radius:50%; background:var(--panel2); border:1px solid var(--line); display:grid; place-items:center; font-size:13px; font-weight:700; color:var(--accent)}
   .q .a{margin-left:auto; color:var(--accent2); font-size:14px; font-weight:600}
+  /* ===== partners logo wall (from kavi) ===== */
+  .logowall{display:grid; grid-template-columns:repeat(5,1fr); gap:28px; max-width:1180px; margin:0 auto; width:100%; align-items:center; justify-items:center}
+  .logocell{width:100%; height:84px; background:#f7f7fb; border:1px solid var(--line); border-radius:14px;
+    display:grid; place-items:center; padding:16px 20px; transition:.2s}
+  .logocell:hover{box-shadow:var(--glow)}
+  .logocell img{max-width:100%; max-height:44px; object-fit:contain}
+  .logotext{font-weight:800; font-size:24px; letter-spacing:-.02em; color:#111}
+  .logotext.orange{color:#ff9900}
+  .logotext .sub{font-weight:600; font-size:15px}
 </style>
 </head>
 <body>
@@ -965,6 +974,40 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
           <p>Launch MVP (Sept '26) → Scale to <b>25,000 MAU</b> → Launch enterprise API → Reach <b>£1.2M ARR</b> → Series A ready</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARTNERS (from kavi) — before Close ===== -->
+<section class="stage" data-act="Partners">
+  <div class="kicker">Backed by the ecosystem</div>
+  <h1>Strategic <span style="color:var(--accent)">Ecosystem Partners</span></h1>
+  <p class="lead">Backed by the leading cloud, AI, and developer platforms — the infrastructure powering BeVoyager end to end.</p>
+  <div class="body">
+    <div class="logowall">
+      <div class="logocell"><span class="logotext orange">aws</span></div>
+      <div class="logocell"><img src="logos/nvidia.svg" alt="NVIDIA"></div>
+      <div class="logocell"><img src="logos/googlecloud.svg" alt="Google Cloud"></div>
+      <div class="logocell"><span class="logotext" style="color:#0078d4">Microsoft <span class="sub">Azure</span></span></div>
+      <div class="logocell"><img src="logos/atlassian.svg" alt="Atlassian"></div>
+
+      <div class="logocell"><img src="logos/datadog.svg" alt="Datadog"></div>
+      <div class="logocell"><img src="logos/github.svg" alt="GitHub"></div>
+      <div class="logocell"><img src="logos/gitlab.svg" alt="GitLab"></div>
+      <div class="logocell"><img src="logos/sentry.svg" alt="Sentry"></div>
+      <div class="logocell"><img src="logos/retool.svg" alt="Retool"></div>
+
+      <div class="logocell"><img src="logos/stripe.svg" alt="Stripe"></div>
+      <div class="logocell"><span class="logotext" style="color:#1e6fff">▲ Amplitude</span></div>
+      <div class="logocell"><img src="logos/miro.svg" alt="Miro"></div>
+      <div class="logocell"><img src="logos/intercom.svg" alt="Intercom"></div>
+      <div class="logocell"><img src="logos/cloudflare.svg" alt="Cloudflare"></div>
+
+      <div class="logocell"><img src="logos/mixpanel.svg" alt="Mixpanel"></div>
+      <div class="logocell"><img src="logos/posthog.svg" alt="PostHog"></div>
+      <div class="logocell"><img src="logos/confluent.svg" alt="Confluent"></div>
+      <div class="logocell"><span class="logotext" style="color:#0a5d2e">CARTESIA</span></div>
+      <div class="logocell"><span class="logotext">λ <span class="sub" style="color:#333">Lambda</span></span></div>
     </div>
   </div>
 </section>
