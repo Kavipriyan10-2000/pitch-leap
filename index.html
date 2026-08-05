@@ -317,6 +317,12 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
   .q .a{margin-left:auto; color:var(--accent2); font-size:14px; font-weight:600}
   /* ===== partners logo wall (from kavi) ===== */
   .logowall{display:grid; grid-template-columns:repeat(5,1fr); gap:28px; max-width:1180px; margin:0 auto; width:100%; align-items:center; justify-items:center}
+  .logowall-4{grid-template-columns:repeat(4,1fr); gap:24px; max-width:1080px}
+  .logowall-4 .logocell{height:120px; padding:22px 26px}
+  .logowall-4 .logocell img{max-height:72px}
+  .logowall-5{grid-template-columns:repeat(5,1fr); gap:18px; max-width:1200px}
+  .logowall-5 .logocell{height:84px; padding:14px 18px}
+  .logowall-5 .logocell img{max-height:48px}
   .logocell{width:100%; height:84px; background:#f7f7fb; border:1px solid var(--line); border-radius:14px;
     display:grid; place-items:center; padding:16px 20px; transition:.2s}
   .logocell:hover{box-shadow:var(--glow)}
@@ -982,32 +988,29 @@ h1 .sub{color:var(--dim); font-weight:400; font-size:26px}
 <section class="stage" data-act="Partners">
   <div class="kicker">Backed by the ecosystem</div>
   <h1>Strategic <span style="color:var(--accent)">Ecosystem Partners</span></h1>
-  <p class="lead">Backed by the leading cloud, AI, and developer platforms — the infrastructure powering BeVoyager end to end.</p>
+  <p class="lead">Backed by the leading cloud, AI, and travel platforms — the infrastructure powering BeVoyager end to end.</p>
   <div class="body">
-    <div class="logowall">
-      <div class="logocell"><span class="logotext orange">aws</span></div>
-      <div class="logocell"><img src="logos/nvidia.svg" alt="NVIDIA"></div>
-      <div class="logocell"><img src="logos/googlecloud.svg" alt="Google Cloud"></div>
-      <div class="logocell"><span class="logotext" style="color:#0078d4">Microsoft <span class="sub">Azure</span></span></div>
-      <div class="logocell"><img src="logos/atlassian.svg" alt="Atlassian"></div>
-
+    <div class="logowall logowall-5">
+      <div class="logocell"><img src="logos/aws-startups-logo.png" alt="AWS Startups"></div>
+      <div class="logocell"><img src="logos/microsoft-azure-logo.png" alt="Microsoft Azure"></div>
+      <div class="logocell"><img src="logos/google-cloud-startups-logo.png" alt="Google Cloud for Startups"></div>
+      <div class="logocell"><img src="logos/nvidia-inception-logo.png" alt="NVIDIA Inception"></div>
+      <div class="logocell"><img src="logos/cloudflare-logo.png" alt="Cloudflare"></div>
+      <div class="logocell"><img src="logos/lambda-logo.png" alt="Lambda"></div>
+      <div class="logocell"><img src="logos/viator-logo.png" alt="Viator"></div>
+      <div class="logocell"><img src="logos/getyourguide-logo.png" alt="GetYourGuide"></div>
       <div class="logocell"><img src="logos/datadog.svg" alt="Datadog"></div>
+      <div class="logocell"><img src="logos/sentry.svg" alt="Sentry"></div>
+      <div class="logocell"><img src="logos/stripe.svg" alt="Stripe"></div>
+      <div class="logocell"><img src="logos/atlassian.svg" alt="Atlassian"></div>
       <div class="logocell"><img src="logos/github.svg" alt="GitHub"></div>
       <div class="logocell"><img src="logos/gitlab.svg" alt="GitLab"></div>
-      <div class="logocell"><img src="logos/sentry.svg" alt="Sentry"></div>
       <div class="logocell"><img src="logos/retool.svg" alt="Retool"></div>
-
-      <div class="logocell"><img src="logos/stripe.svg" alt="Stripe"></div>
-      <div class="logocell"><span class="logotext" style="color:#1e6fff">▲ Amplitude</span></div>
       <div class="logocell"><img src="logos/miro.svg" alt="Miro"></div>
       <div class="logocell"><img src="logos/intercom.svg" alt="Intercom"></div>
-      <div class="logocell"><img src="logos/cloudflare.svg" alt="Cloudflare"></div>
-
       <div class="logocell"><img src="logos/mixpanel.svg" alt="Mixpanel"></div>
       <div class="logocell"><img src="logos/posthog.svg" alt="PostHog"></div>
       <div class="logocell"><img src="logos/confluent.svg" alt="Confluent"></div>
-      <div class="logocell"><span class="logotext" style="color:#0a5d2e">CARTESIA</span></div>
-      <div class="logocell"><span class="logotext">λ <span class="sub" style="color:#333">Lambda</span></span></div>
     </div>
   </div>
 </section>
